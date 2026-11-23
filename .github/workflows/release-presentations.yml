@@ -1,5 +1,7 @@
-# Attaches the built presentations (PPTX + HTML) to the GitHub release as downloadable assets.
+# Attaches the built presentations (PPTX + HTML) to their GitHub releases as downloadable assets.
 # Runs on GitHub's servers whenever the presentations change on this branch (or manually).
+#   presentations/drevnyaya-gretsiya.*              -> release v1.0-greece
+#   presentations/kukla-iz-vozdushnogo-plastilina.*  -> release v1.1-kukla
 name: Release presentations
 on:
   push:
@@ -13,18 +15,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Upload PPTX + HTML to release v1.0-greece
+      - name: Upload PPTX + HTML to their releases
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -e
-          TAG=v1.0-greece
-          FILES="presentations/drevnyaya-gretsiya.pptx presentations/drevnyaya-gretsiya.html"
-          ls -la $FILES
-          if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release upload "$TAG" $FILES --clobber
-          else
-            gh release create "$TAG" $FILES --target "$GITHUB_SHA" --title "Древняя Греция — презентация (PPTX + HTML)" \
-              --notes "Презентация «Как появилась Древняя Греция»: HTML (телефон) и PPTX (PowerPoint)."
-          fi
-          gh release view "$TAG" --json assets --jq '.assets[] | "\(.name) \(.size)"'
+          check () { gh release view "$1" >/dev/null 2>&1; }
+          upload () {  # tag, title, notes, then the files
+            TAG=$1; TITLE=$2; NOTES=$3; shift 3
+            if check "$TAG"; then
+              gh release upload "$TAG" "$@" --clobber
+            else
+              gh release create "$TAG" "$@" --target "$GITHUB_SHA" --title "$TITLE" --notes "$NOTES"
+            fi
+            gh release view "$TAG" --json assets --jq '.assets[] | "\(.name) \(.size)"'
+          }
+          echo "== Greece =="
+          upload v1.0-greece \
+            "Древняя Греция — презентация (PPTX + HTML)" \
+            "Презентация «Как появилась Древняя Греция»: HTML (телефон) и PPTX (PowerPoint)." \
+            presentations/drevnyaya-gretsiya.pptx presentations/drevnyaya-gretsiya.html
+          echo "== Kukla =="
+          upload v1.1-kukla \
+            "Кукла из воздушного пластилина — PPTX + HTML (правки)" \
+            "Правки по пунктам: чёрный рот на 13-15, фото на 18, живой фон красками, 0 ошибок." \
+            presentations/kukla-iz-vozdushnogo-plastilina.pptx presentations/kukla-iz-vozdushnogo-plastilina.html

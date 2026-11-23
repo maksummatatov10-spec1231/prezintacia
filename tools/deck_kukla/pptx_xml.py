@@ -169,3 +169,161 @@ def set_fade(slide_xml: bytes, spd: str = "med") -> bytes:
         anchor = root.find(q(P, "cSld"))
     anchor.addnext(tr)
     return etree.tostring(root, xml_declaration=True, encoding="UTF-8", standalone=True)
+
+
+
+
+# --------------------------------------------------------------------------- entrances (animations)
+#
+# PowerPoint keeps slide animation in p:timing (the LAST child of p:sld, after cSld / clrMapOvr / transition).
+# The shape of it that PowerPoint itself writes for "Fade, start with previous, quickly":
+#
+#   p:timing > p:tnLst > p:par > p:cTn id=1 dur=indefinite nodeType=tmRoot restart=never
+#     p:childTnLst > p:seq concurrent=1 nextAc=seek
+#       p:cTn id=2 dur=indefinite nodeType=mainSeq
+#         p:childTnLst
+#           p:par                                   ← one "click group"
+#             p:cTn id=3 fill=hold
+#               p:stCondLst > p:cond delay=...      ← 0 = starts by itself, indefinite = on click
+#               p:childTnLst
+#                 p:par > p:cTn id=4 fill=hold
+#                   p:stCondLst > p:cond delay=0
+#                   p:childTnLst
+#                     p:par > p:cTn id=5 nodeType=clickEffect presetID=10 presetClass=entr
+#                       presetSubtype=0 grpId=0
+#                       p:stCondLst > p:cond delay=k*step
+#                       p:childTnLst
+#                         p:set / p:animEffect   ← each one needs cBhvr > cTn(stCondLst) + tgtEl (+ attrNameLst)
+#       p:prevCondLst / p:nextCondLst               ← PowerPoint always writes both
+#
+# Every cTn needs a unique id, dur and restart="whenNotActive"; a missing piece is what makes PowerPoint
+# offer «Восстановить». Only plain fade — no media, no motion paths.
+_ID = [1]
+FADE_PRESET = {"presetID": "10", "presetClass": "entr", "presetSubtype": "0", "grpId": "0"}
+
+
+def _tn(parent, *, dur="1", fill="hold", node_type=None, restart="whenNotActive", attrs=None, cond=None):
+    el = etree.SubElement(parent, q(P, "cTn"))
+    el.set("id", str(_ID[0])); _ID[0] += 1
+    el.set("dur", str(dur))
+    if node_type:
+        el.set("nodeType", node_type)
+    if fill:
+        el.set("fill", fill)
+    if restart:
+        el.set("restart", restart)
+    for k, v in (attrs or {}).items():
+        el.set(k, v)
+    if cond is not None:
+        _cond(etree.SubElement(el, q(P, "stCondLst")), cond)
+    return el
+
+
+def _cond(parent, delay="0", evt=None):
+    c = etree.SubElement(parent, q(P, "cond"))
+    c.set("delay", str(delay))
+    if evt:
+        c.set("evt", evt)
+    return c
+
+
+def _sld_tgt(parent):
+    etree.SubElement(etree.SubElement(parent, q(P, "tgtEl")), q(P, "sldTgt"))
+
+
+def _sp_tgt(parent, spid):
+    etree.SubElement(etree.SubElement(parent, q(P, "tgtEl")), q(P, "spTgt")).set("spid", str(spid))
+
+
+def _fade_effect(parent, spid: int, dur: int):
+    """The two behaviours of a Fade entrance: make it visible, then fade it in."""
+    pset = etree.SubElement(parent, q(P, "set"))
+    cb = etree.SubElement(pset, q(P, "cBhvr"))
+    _tn(cb, dur="1", cond="0")
+    _sp_tgt(cb, spid)
+    names = etree.SubElement(cb, q(P, "attrNameLst"))
+    etree.SubElement(names, q(P, "attrName")).text = "style.visibility"
+    to = etree.SubElement(pset, q(P, "to"))
+    etree.SubElement(to, q(P, "strVal")).set("val", "visible")
+
+    anim = etree.SubElement(parent, q(P, "animEffect"))
+    anim.set("transition", "in")
+    anim.set("filter", "fade")
+    ab = etree.SubElement(anim, q(P, "cBhvr"))
+    _tn(ab, dur=str(dur))
+    _sp_tgt(ab, spid)
+
+
+def _timing(ids: list[int], *, dur: int, step: int, on_click: bool) -> etree._Element:
+    _ID[0] = 1
+    timing = etree.Element(q(P, "timing"))
+    tnl = etree.SubElement(timing, q(P, "tnLst"))
+    rpar = etree.SubElement(tnl, q(P, "par"))
+    root_tn = etree.SubElement(rpar, q(P, "cTn"))
+    root_tn.set("id", "1"); root_tn.set("dur", "indefinite")
+    root_tn.set("restart", "never"); root_tn.set("nodeType", "tmRoot")
+    _ID[0] = 2
+    seq = etree.SubElement(etree.SubElement(root_tn, q(P, "childTnLst")), q(P, "seq"))
+    seq.set("concurrent", "1")
+    seq.set("nextAc", "seek")
+    main = etree.SubElement(seq, q(P, "cTn"))
+    main.set("id", "2"); main.set("dur", "indefinite"); main.set("nodeType", "mainSeq")
+    _ID[0] = 3
+    lst = etree.SubElement(main, q(P, "childTnLst"))
+
+    click = etree.SubElement(lst, q(P, "par"))
+    click_tn = _tn(click, cond="indefinite" if on_click else "0")
+    group = etree.SubElement(etree.SubElement(click_tn, q(P, "childTnLst")), q(P, "par"))
+    group_tn = _tn(group, cond="0")
+    effs = etree.SubElement(group_tn, q(P, "childTnLst"))
+    for k, spid in enumerate(ids):
+        par = etree.SubElement(effs, q(P, "par"))
+        tn = _tn(par, dur=str(dur), node_type="clickEffect", attrs=FADE_PRESET, cond=str(k * step))
+        _fade_effect(etree.SubElement(tn, q(P, "childTnLst")), spid, dur)
+
+    prev = etree.SubElement(seq, q(P, "prevCondLst"))
+    _sld_tgt(_cond(prev, "0", "onPrev"))
+    nxt = etree.SubElement(seq, q(P, "nextCondLst"))
+    _sld_tgt(_cond(nxt, "0", "onNext"))
+    return timing
+
+
+def auto_entrances(slide_xml: bytes, *, dur: int = 400, total: int = 1500, skip_names=(), skip_ids=()) -> bytes:
+    """Fade in every text block / picture of the slide in reading order, fast, no clicking needed.
+
+    `total` ms is the budget for the whole cascade, so a dense slide (17 has 60+ chart bars) still
+    finishes quickly instead of dragging for seconds.
+    """
+    root = etree.fromstring(slide_xml)
+    old = root.find(q(P, "timing"))
+    if old is not None:
+        root.remove(old)
+    tree = _sp_tree(root)
+    assert tree is not None
+    ids: list[int] = []
+    for el in tree:
+        cnv = el.find(f"{q(P, 'nvPicPr')}/{q(P, 'cNvPr')}") if el.tag == q(P, "pic") else \
+              el.find(f"{q(P, 'nvSpPr')}/{q(P, 'cNvPr')}")
+        if cnv is None:
+            continue
+        if cnv.get("name") in skip_names or cnv.get("id") in {str(i) for i in skip_ids}:
+            continue
+        ids.append(int(cnv.get("id")))
+    if not ids:
+        return slide_xml
+    step = max(20, min(90, total // max(1, len(ids))))
+    root.append(_timing(ids, dur=dur, step=step, on_click=False))
+    return etree.tostring(root, xml_declaration=True, encoding="UTF-8", standalone=True)
+
+
+def page_number_ids(slide_xml: bytes) -> list[int]:
+    """Ids of the little «1»…«19» page numbers, so they never animate."""
+    out = []
+    root = etree.fromstring(slide_xml)
+    for sp in root.iter(q(P, "sp")):
+        txt = "".join(t.text or "" for t in sp.iter(q(A, "t"))).strip()
+        if re.fullmatch(r"\d{1,2}", txt):
+            cnv = sp.find(f"{q(P, 'nvSpPr')}/{q(P, 'cNvPr')}")
+            if cnv is not None:
+                out.append(int(cnv.get("id")))
+    return out

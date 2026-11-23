@@ -28,8 +28,10 @@ SRC = ROOT / "input/kukla-iz-vozdushnogo-plastilina.pptx"
 OUT = ROOT / "presentations/kukla-iz-vozdushnogo-plastilina.pptx"
 BG = ROOT / "tools/deck_kukla/assets/bg/paint.jpg"
 
-PHOTO = ROOT / "tools/deck_kukla/assets/photo/girl_square.jpg"
+PHOTO = ROOT / "tools/deck_kukla/assets/fix/girl_4x5.jpg"
 MOUTHS = {n: ROOT / f"tools/deck_kukla/assets/mouth/slide{n}.jpg" for n in (13, 14, 15)}
+# PowerPoint cannot render WebP: the Дымково photo arrives as .webp and shows «не удаётся отобразить рисунок»
+DYMKOVO_PNG = ROOT / "tools/deck_kukla/assets/fix/dymkovo.png"
 
 SLIDE_W, SLIDE_H = 12192000, 6858000
 NO_BG = {19}  # the final slide stays dark: white type needs it
@@ -119,9 +121,17 @@ def edit_slide(n: int, xml: bytes) -> bytes:
     return s.encode("utf-8")
 
 
+# --- animations: every text block and photo fades in, fast, in reading order; the paint background
+#     and the page numbers stay put so the slide never flashes empty
+def add_anim(xml: bytes) -> bytes:
+    return X.auto_entrances(xml, dur=400, total=1500,
+                            skip_names=("Фон · краски",),
+                            skip_ids=X.page_number_ids(xml))
+
+
 def add_photo(xml: bytes) -> bytes:
-    """slide 18: the girl with the doll — square card under the checklist, bottom-left."""
-    return X.add_picture(xml, x=813600, y=4500000, w=2100000, h=2100000,
+    """slide 18: the girl with the doll — 4:5 portrait, left column under the checklist (nothing cropped)."""
+    return X.add_picture(xml, x=815000, y=4460000, w=1840000, h=2300000,
                          embed_rid="rId90", name="Камилла с куклой", index=2, shadow=0.26,
                          descr="Автор работы — Камилла — держит готовую куклу «Барыня»",
                          round_adj=5500)
@@ -130,7 +140,7 @@ def add_photo(xml: bytes) -> bytes:
 # --------------------------------------------------------------------------- assembly
 def main() -> int:
     t0 = time.time()
-    assert BG.exists() and PHOTO.exists(), "assets missing"
+    assert BG.exists() and PHOTO.exists() and DYMKOVO_PNG.exists(), "assets missing"
     for p in MOUTHS.values():
         assert p.exists(), p
     tmp = OUT.with_suffix(".tmp.pptx")
@@ -146,11 +156,17 @@ def main() -> int:
             m = re.search(r'Id="(rId\d+)"[^>]*Target="\.\./media/([^"]+)"', rels)
             media[n] = (m.group(1), "ppt/media/" + m.group(2))
         HANDLED = {f"ppt/slides/_rels/slide{n}.xml.rels" for n in range(1, 20)} | {"[Content_Types].xml"}
+        # no webp anywhere any more: drop its content-type defaults/overrides too
+        ct = re.sub(rb'<Default Extension="webp"[^/]*/>', b"", ct)
+        ct = re.sub(rb'<Override PartName="/ppt/media/image-6-1\.webp"[^/]*/>', b"", ct)
         MEDIA_REPL = {media[n][1]: n for n in media}
 
         with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
             for it in infos:
                 name = it.filename
+                if name == "ppt/media/image-6-1.webp":  # Дымково: webp → png
+                    log.append("слайд 6: картинка дымковской игрушки webp → png (PowerPoint теперь её видит)")
+                    continue
                 if name in HANDLED:
                     continue
                 data = zin.read(name)
@@ -164,6 +180,8 @@ def main() -> int:
                     data = edit_slide(n, data)
                     rels_name = f"ppt/slides/_rels/slide{n}.xml.rels"
                     rels = zin.read(rels_name)
+                    if n == 6:  # the picture part is a .png now
+                        rels = rels.replace(b"image-6-1.webp", b"image-6-1.png")
                     if n == 18:
                         rels = X.add_rel(rels, "rId90", "image", "../media/girl_with_doll.jpg")
                         data = add_photo(data)
@@ -173,10 +191,12 @@ def main() -> int:
                         data = X.set_bg_image(data, "rId93")        # the real slide background
                         data = X.add_backdrop(data, w=SLIDE_W, h=SLIDE_H, embed_rid="rId93")  # + cover picture
                     data = X.set_fade(data, "med")
+                    data = add_anim(data)  # 2. fast fade-in of every block
                     zout.writestr(rels_name, rels)
                 zout.writestr(it, data)
             zout.writestr("[Content_Types].xml", ct)
             zout.writestr("ppt/media/paint.jpg", bg_bytes)
+            zout.writestr("ppt/media/image-6-1.png", DYMKOVO_PNG.read_bytes())
             zout.writestr("ppt/media/girl_with_doll.jpg", photo_bytes)
     shutil.move(tmp, OUT)
     print("\n".join(log))

@@ -236,16 +236,18 @@ add(f"""<div class="pad">
     "Все десять знают, что он застывает, и все десять хотят научиться лепить такую куклу. Интерес высокий.",
     "Опрос ровесников")
 
-add(f"""<div class="pad two">
+add(f"""<div class="pad two s8">
   <div>
     <p class="eyebrow">ИТОГИ</p>
     <h2>Итоги исследования и гипотеза</h2>
     <p class="tag red">В ХОДЕ РАБОТЫ Я</p>
     <ul class="checks">{"".join(f"<li>{t}</li>" for t in ("изучила традиции ДПИ", "изучила историю кукол", "изучила свойства воздушного пластилина", "сделала куклу по эскизу", "провела опрос ровесников"))}</ul>
+    <figure class="photo under"><img src="IMG:girl" alt="Камилла с готовой куклой «Барыней»" title="Камилла с готовой «Барыней»"></figure>
+  </div>
+  <div>
     <div class="card hyp big-card"><p class="tag bread">ГИПОТЕЗА ПОДТВЕРДИЛАСЬ</p>
       <p class="strong">Кукла из воздушного пластилина получилась лёгкой (около 40 г) и надёжно сохранила форму после высыхания.</p></div>
   </div>
-  <figure class="photo"><img src="IMG:girl" alt="Камилла с готовой куклой «Барыней»" title="Камилла с готовой «Барыней»"></figure>
 </div>""",
     "Всё, что было в задачах, выполнено. Гипотеза подтвердилась: кукла получилась лёгкой, около 40 г, "
     "и надёжно сохранила форму после высыхания.",
@@ -377,8 +379,14 @@ ul.checks li:after{content:"✓";position:absolute}
 .big-card{background:#C8553D;color:#fff;margin-top:3%;padding:3.4% 3.8%}
 .big-card .strong{font-size:1.34em;margin-top:.5em}
 .photo{margin:0;min-height:0;display:flex;flex-direction:column;justify-content:center}
-.photo img{width:100%;height:100%;max-height:100%;object-fit:cover;object-position:50% 42%;border-radius:1.3em;
+.photo img{width:100%;height:100%;max-height:100%;object-fit:contain;object-position:50% 50%;border-radius:1.1em;
  box-shadow:0 24px 50px rgba(42,26,23,.18)}
+.two.s8{align-items:stretch}
+.two.s8>div:first-child{display:flex;flex-direction:column;min-height:0}
+.photo.under{margin:2.2% 0 0;flex:0 1 auto;min-height:0;max-height:100%;align-items:flex-start;
+ justify-content:flex-start;background:none;box-shadow:none;border-radius:0}
+.photo.under img{width:auto;max-width:100%;height:auto;max-height:100%;object-fit:contain;object-position:50% 50%}
+.two.s8 .big-card{margin-top:0}
 .cover{justify-content:center;padding-right:44%}
 .cover .lead{margin-top:1.4%;max-width:26ch;font-size:1.38em}
 .cover .meta{margin-top:2.4%}
@@ -405,9 +413,24 @@ ul.checks li:after{content:"✓";position:absolute}
   #nav{display:flex}
 }
 @media (orientation:landscape) and (min-aspect-ratio:3/2){.stage{font-size:clamp(8px,1.15vw,26px)}}
-@media (prefers-reduced-motion:reduce){.paint,.paint i{animation:none!important}}
+/* `translate`, not `transform`: absolutely-centred art (slide 7 doll, cover circle) must keep its own transform */
+@keyframes rise{from{opacity:0;translate:0 14px}to{opacity:1;translate:0 0}}
+.slide.on .stage>div>*,.slide.on .pad>*,.slide.on .pad>div>*,.slide.on .pad>figure{animation:rise .42s cubic-bezier(.2,.7,.3,1) both}
+.slide.on .stage>div>*:nth-child(2){animation-delay:.05s}.slide.on .stage>div>*:nth-child(3){animation-delay:.10s}
+.slide.on .stage>div>*:nth-child(4){animation-delay:.15s}.slide.on .stage>div>*:nth-child(5){animation-delay:.20s}
+.slide.on .stage>div>*:nth-child(6){animation-delay:.25s}.slide.on .stage>div>*:nth-child(n+7){animation-delay:.30s}
+.slide.on .pad>div>*{animation-duration:.4s}
+.slide.on .pad>div>*:nth-child(2){animation-delay:.06s}.slide.on .pad>div>*:nth-child(3){animation-delay:.12s}
+.slide.on .pad>div>*:nth-child(4){animation-delay:.18s}.slide.on .pad>div>*:nth-child(5){animation-delay:.24s}
+.slide.on .pad>div>*:nth-child(n+6){animation-delay:.30s}
+.slide:not(.on) .stage>div>*,.slide:not(.on) .pad>*{animation:none}
+@media (prefers-reduced-motion:reduce){.paint,.paint i{animation:none!important}
+ .slide.on .stage>div>*,.slide.on .pad>*,.slide.on .pad>div>*,.slide.on .pad>figure{animation:none!important}}
 /* screenshots / print: freeze the background so capture is instant and pixel-identical */
 html.static *,html.static *:before,html.static *:after{animation:none!important;transition:none!important}
+/* the entrance keyframes start at opacity 0 — must be neutralised explicitly, `animation:none` is not enough */
+html.static .slide .stage>div>*,html.static .slide .pad>*,html.static .slide .pad>div>*,
+html.static .slide .pad>figure{opacity:1!important;translate:none!important}
 html.static .paint{transform:scale(1.08)}
 html.static #nav,html.static #bar,html.static #toast{opacity:0;pointer-events:none}
 /* ---------- chrome */

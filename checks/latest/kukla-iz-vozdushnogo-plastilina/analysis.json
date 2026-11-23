@@ -1,6 +1,6 @@
 {
  "file": "presentations/kukla-iz-vozdushnogo-plastilina.pptx",
- "kb": 4815.8,
+ "kb": 7019.1,
  "slide_size": {
   "w": 12192000,
   "h": 6858000,
@@ -47,7 +47,7 @@
  },
  "embedded_fonts": [],
  "images": {
-  "unique": 41,
+  "unique": 42,
   "reused": {
    "f390dabdd7d9": [
     1,
@@ -755,7 +755,80 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "10"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "12"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide1.xml"
@@ -1535,7 +1608,80 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "10"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "12"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide2.xml"
@@ -2696,7 +2842,98 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "15"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "17"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "18"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "19"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "20"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide3.xml"
@@ -3843,7 +4080,128 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "10"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "12"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "14"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "15"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "16"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "17"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "18"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "19"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "20"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "21"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide4.xml"
@@ -4624,7 +4982,80 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "10"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "12"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide5.xml"
@@ -5044,7 +5475,23 @@
      ],
      "rot": 0,
      "picture": {
-      "error": "no embedded image (linked?)"
+      "format": "png",
+      "kb": 2294.6,
+      "px": [
+       1800,
+       1800
+      ],
+      "sha1": "964bc228a4b8",
+      "crop": {
+       "left": 0.0,
+       "top": 0.0,
+       "right": 0.0,
+       "bottom": 0.0
+      },
+      "partname": "image.png",
+      "effective_dpi": 405,
+      "distortion": 1.0,
+      "alt": "1000251566.png"
      }
     }
    ],
@@ -5055,7 +5502,44 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide6.xml"
@@ -6482,7 +6966,164 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "10"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "12"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "14"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "15"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "16"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "17"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "18"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "19"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "20"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "21"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "22"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "23"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "24"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "25"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "26"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "27"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide7.xml"
@@ -7510,7 +8151,104 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "10"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "12"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "14"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "15"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "16"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "17"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide8.xml"
@@ -8751,7 +9489,140 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "10"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "12"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "14"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "15"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "16"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "17"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "18"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "19"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "20"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "21"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "22"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "23"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide9.xml"
@@ -9425,7 +10296,32 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide10.xml"
@@ -10099,7 +10995,32 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide11.xml"
@@ -10773,7 +11694,32 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide12.xml"
@@ -11447,7 +12393,32 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide13.xml"
@@ -12121,7 +13092,32 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide14.xml"
@@ -12795,7 +13791,32 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide15.xml"
@@ -13945,7 +14966,122 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "10"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "12"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "14"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "15"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "16"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "17"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "18"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "19"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "20"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide16.xml"
@@ -17295,7 +18431,386 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "10"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "12"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "14"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "15"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "16"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "17"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "18"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "19"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "20"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "21"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "22"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "23"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "24"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "25"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "26"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "27"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "28"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "29"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "30"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "31"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "32"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "33"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "34"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "35"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "36"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "37"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "38"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "39"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "40"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "41"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "42"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "43"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "44"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "45"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "46"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "47"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "48"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "49"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "50"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "51"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "52"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "53"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "54"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "55"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "56"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "57"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "58"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "59"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "60"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "61"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "62"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "63"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "64"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide17.xml"
@@ -17358,31 +18873,31 @@
      "name": "Камилла с куклой",
      "kind": "picture",
      "z": 1,
-     "x": 813600,
-     "y": 4500000,
-     "w": 2100000,
-     "h": 2100000,
+     "x": 815000,
+     "y": 4460000,
+     "w": 1840000,
+     "h": 2300000,
      "cm": [
       2.26,
-      12.5,
-      5.83,
-      5.83
+      12.39,
+      5.11,
+      6.39
      ],
      "pct": [
       6.7,
-      65.6,
-      17.2,
-      30.6
+      65.0,
+      15.1,
+      33.5
      ],
      "rot": 0,
      "picture": {
       "format": "jpg",
-      "kb": 222.8,
+      "kb": 355.4,
       "px": [
-       964,
-       964
+       1280,
+       1600
       ],
-      "sha1": "582de6aef368",
+      "sha1": "e8884001481d",
       "crop": {
        "left": 0.0,
        "top": 0.0,
@@ -17390,7 +18905,7 @@
        "bottom": 0.0
       },
       "partname": "image.jpg",
-      "effective_dpi": 419,
+      "effective_dpi": 636,
       "distortion": 1.0,
       "alt": "Автор работы — Камилла — держит готовую куклу «Барыня»"
      }
@@ -18577,7 +20092,146 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "25"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "5"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "6"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "7"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "8"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "9"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "10"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "11"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "12"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "13"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "14"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "15"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "16"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "17"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "18"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "19"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "20"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "21"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "22"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "23"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide18.xml"
@@ -18741,7 +20395,26 @@
      "spd": "med",
      "dur": null
     },
-    "effects": [],
+    "effects": [
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "2"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "3"
+     },
+     {
+      "class": "entr",
+      "preset": "10",
+      "node": "clickEffect",
+      "spid": "4"
+     }
+    ],
     "triggers": 0
    },
    "partname": "/ppt/slides/slide19.xml"

@@ -1,6 +1,23 @@
-# prezintacia — тулкит для презентаций + практическая презентация «Как появилась Древняя Греция»
+# prezintacia — тулкит для презентаций + две готовые презентации
 
 ## 📦 Готовые презентации
+
+### «Кукла из воздушного пластилина» (правки по пунктам заказчика)
+| Файл | Для чего |
+|---|---|
+| [`presentations/kukla-iz-vozdushnogo-plastilina.pptx`](presentations/kukla-iz-vozdushnogo-plastilina.pptx) | PowerPoint, 19 слайдов: живой фон-видео (петля) + статичная подложка, фото автора с куклой на 18-м, плавные переходы, 0 замечаний проверки |
+| [`presentations/kukla-iz-vozdushnogo-plastilina.html`](presentations/kukla-iz-vozdushnogo-plastilina.html) | Один HTML-файл для телефона: живой фон на CSS, свайпы, чёрный экран (B), заметки докладчика (N) |
+
+**Скачать из релиза [v1.1-kukla](https://github.com/maksummatatov10-spec1231/prezintacia/releases/tag/v1.1-kukla):** [HTML](https://github.com/maksummatatov10-spec1231/prezintacia/releases/download/v1.1-kukla/kukla-iz-vozdushnogo-plastilina.html) · [PPTX](https://github.com/maksummatatov10-spec1231/prezintacia/releases/download/v1.1-kukla/kukla-iz-vozdushnogo-plastilina.pptx)
+
+Пересобрать из исходника (`input/kukla-iz-vozdushnogo-plastilina.pptx` — файл заказчика, не меняется):
+```bash
+python tools/deck_kukla/build_deck.py     # PPTX: рот чёрный на 13–15, фото на 18, видео-фон, 0 ошибок
+python tools/deck_kukla/make_html.py      # HTML для телефона с живым фоном
+python tools/paint_bg.py out/paint.mp4    # сам видео-фон (бесшовная петля, 4 краски)
+```
+
+### «Как появилась Древняя Греция» (детская практическая презентация)
 | Файл | Для чего |
 |---|---|
 | [`presentations/drevnyaya-gretsiya.pptx`](presentations/drevnyaya-gretsiya.pptx) | PowerPoint: 20 слайдов, анимации, переходы, кликабельная викторина, встроенные шрифты, заметки докладчика |
@@ -10,7 +27,7 @@
 
 HTML откройте в браузере телефона (Chrome или Safari): после скачивания интернет не нужен. В просмотрщике без JavaScript (например, «Файлы» на iPhone) все слайды показываются подряд, по вертикали.
 
-Файлы в релизе обновляются автоматически: workflow `.github/workflows/release-presentations.yml` срабатывает при каждом изменении `presentations/` и заново прикрепляет PPTX и HTML к релизу.
+Файлы в релизах обновляются автоматически: workflow `.github/workflows/release-presentations.yml` срабатывает при каждом изменении `presentations/` и заново прикрепляет оба PPTX и оба HTML к их релизам (v1.0-greece и v1.1-kukla).
 
 ## ⚡ Установка окружения (1 команда)
 ```bash

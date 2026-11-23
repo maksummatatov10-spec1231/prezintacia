@@ -1,19 +1,19 @@
-[      0.1 ms] run 20261123-173738-check-kukla-iz-vozdushnogo-plastilina  →  /home/user/prezintacia/checks/runs/20261123-173738-check-kukla-iz-vozdushnogo-plastilina
-[     88.1 ms] ▶ анализ структуры
-[    410.1 ms] ■ анализ структуры — 322.0 ms
-[    435.9 ms] ▶ рендер слайдов (LibreOffice WASM)
-[    465.3 ms] ■ рендер слайдов (LibreOffice WASM) — 29.4 ms
-[    497.9 ms] слайды: перерисовано 0, из кэша 19
-[    498.0 ms] ▶ контакт-лист
-[   1924.9 ms] ■ контакт-лист — 1426.9 ms
-[   1924.9 ms] ▶ проверка качества (lint)
-[   3358.2 ms] ■ проверка качества (lint) — 1433.3 ms
-[   3359.6 ms] ▶ запуск Chromium
-[   4043.4 ms] ■ запуск Chromium — 683.8 ms
-[   4043.4 ms] ▶ скриншоты слайдов: desktop, phone
-[  17679.1 ms] ■ скриншоты слайдов: desktop, phone — 13635.6 ms
-[  17837.7 ms] ▶ контакт-лист desktop
-[  18608.7 ms] ■ контакт-лист desktop — 771.0 ms
-[  18608.7 ms] ▶ контакт-лист phone
-[  18885.5 ms] ■ контакт-лист phone — 276.7 ms
-[  18889.5 ms] готово за 18885.8 ms → /home/user/prezintacia/checks/runs/20261123-173738-check-kukla-iz-vozdushnogo-plastilina/summary.md
+[      0.0 ms] run 20261123-174011-check-kukla-iz-vozdushnogo-plastilina  →  /home/user/prezintacia/checks/runs/20261123-174011-check-kukla-iz-vozdushnogo-plastilina
+[     73.3 ms] ▶ анализ структуры
+[    298.9 ms] ■ анализ структуры — 225.6 ms
+[    322.1 ms] ▶ рендер слайдов (LibreOffice WASM)
+[  20275.9 ms] ■ рендер слайдов (LibreOffice WASM) — 19953.8 ms
+[  20295.7 ms] слайды: перерисовано 18, из кэша 1
+[  20295.7 ms] ▶ контакт-лист
+[  21571.1 ms] ■ контакт-лист — 1275.4 ms
+[  21571.2 ms] ▶ проверка качества (lint)
+[  22664.7 ms] ■ проверка качества (lint) — 1093.5 ms
+[  22668.6 ms] ▶ запуск Chromium
+[  23539.4 ms] ■ запуск Chromium — 870.8 ms
+[  23539.5 ms] ▶ скриншоты слайдов: desktop, phone
+[  35777.3 ms] ■ скриншоты слайдов: desktop, phone — 12237.9 ms
+[  35844.5 ms] ▶ контакт-лист desktop
+[  36458.7 ms] ■ контакт-лист desktop — 614.2 ms
+[  36458.7 ms] ▶ контакт-лист phone
+[  36688.2 ms] ■ контакт-лист phone — 229.4 ms
+[  36690.7 ms] готово за 36688.5 ms → /home/user/prezintacia/checks/runs/20261123-174011-check-kukla-iz-vozdushnogo-plastilina/summary.md

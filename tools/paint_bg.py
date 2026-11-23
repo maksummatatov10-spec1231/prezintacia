@@ -35,14 +35,14 @@ PAINTS = [(228, 84, 66), (243, 170, 45), (126, 168, 92), (238, 148, 140)]
 
 # blob = (colour index, centre x/y (0..1), orbit amplitude x/y, cycles x/y, phase, radius x/y, angle, amp, pulses)
 BLOBS = [
-    # ci, cx, cy, ax, ay, kx, ky, phase, rx, ry, angle, amp, pulses — rounder, watercolour-like patches
-    (0, 0.12, 0.18, 0.10, 0.08, 1, 2, 0.7, 0.30, 0.28, -18, 0.58, 1),
-    (1, 0.78, 0.14, 0.09, 0.10, 2, 1, 2.1, 0.26, 0.30, 24, 0.52, 2),
-    (2, 0.88, 0.76, 0.09, 0.09, 1, 1, 4.0, 0.30, 0.27, -32, 0.46, 1),
-    (3, 0.20, 0.86, 0.11, 0.08, 2, 3, 5.2, 0.28, 0.25, 12, 0.50, 2),
-    (1, 0.50, 0.50, 0.14, 0.10, 1, 2, 3.3, 0.20, 0.19, 40, 0.26, 3),
-    (0, 0.38, 0.06, 0.12, 0.06, 2, 2, 1.1, 0.18, 0.17, -8, 0.26, 2),
-    (3, 0.62, 0.94, 0.10, 0.06, 1, 3, 0.3, 0.22, 0.16, 30, 0.30, 2),
+    # ci, cx, cy, ax, ay, kx, ky, phase, rx, ry, angle, amp, pulses — soft round "paint" clouds
+    (0, 0.13, 0.26, 0.10, 0.08, 1, 2, 0.7, 0.26, 0.24, -18, 0.52, 1),
+    (1, 0.79, 0.16, 0.09, 0.10, 2, 1, 2.1, 0.23, 0.26, 24, 0.46, 2),
+    (2, 0.88, 0.78, 0.09, 0.09, 1, 1, 4.0, 0.26, 0.23, -32, 0.42, 1),
+    (3, 0.16, 0.82, 0.11, 0.08, 2, 3, 5.2, 0.24, 0.22, 12, 0.46, 2),
+    (1, 0.52, 0.54, 0.14, 0.10, 1, 2, 3.3, 0.17, 0.16, 40, 0.24, 3),
+    (0, 0.90, 0.44, 0.08, 0.12, 2, 2, 1.1, 0.16, 0.15, -8, 0.24, 2),
+    (3, 0.40, 0.90, 0.10, 0.06, 1, 3, 0.3, 0.18, 0.14, 30, 0.26, 2),
 ]
 
 
@@ -72,9 +72,9 @@ def render(t: float, w: int, h: int, intensity: float = 1.0, falloff: float = 1.
         col = np.array(PAINTS[ci], np.float32)
         out *= (1 - a[..., None])
         out += a[..., None] * col
-    # very soft light from the top-left, keeps the canvas from looking flat
-    sheen = (0.5 - 0.28 * x - 0.18 * y)[..., None]
-    out += sheen * 26
+    # gentle vignette only (no directional tint) + a light warm veil so dark text stays readable
+    vig = 0.5 - 0.30 * (((x - 0.5) ** 2) * 1.6 + ((y - 0.5) ** 2) * 2.2)
+    out += (vig * 16)[..., None]
     return np.clip(out, 0, 255)
 
 
@@ -125,14 +125,16 @@ def main() -> int:
     ap.add_argument("--still", type=Path, help="also write a poster PNG/JPG")
     ap.add_argument("--frames", type=int, default=0, help="write N preview frames as a contact strip")
     ap.add_argument("--intensity", type=float, default=1.0, help="colour strength")
+    ap.add_argument("--veil", type=float, default=0.0, help="0..1 white veil: keeps small text readable on the paint")
     ap.add_argument("--falloff", type=float, default=1.35, help="larger = crisper edges (less blur); ~2.1 is 'paint'")
     ap.add_argument("--quality", type=int, default=92)
     a = ap.parse_args()
     w, h = (int(v) for v in a.size.lower().split("x"))
     if a.seconds <= 0:  # still only
         rng = np.random.default_rng(7)
-        img = Image.fromarray(np.clip(render(0.0, w, h, intensity=a.intensity, falloff=a.falloff) + rng.normal(0, 0.8, (h, w, 3)), 0, 255)
-                              .astype(np.uint8))
+        fr = np.clip(render(0.0, w, h, intensity=a.intensity, falloff=a.falloff) + rng.normal(0, 0.8, (h, w, 3)), 0, 255)
+        fr = fr * (1 - a.veil) + 255 * a.veil  # white veil
+        img = Image.fromarray(fr.astype(np.uint8))
         a.dst.parent.mkdir(parents=True, exist_ok=True)
         img.save(a.dst, quality=a.quality, optimize=True, subsampling=0)
         info = {"size": [w, h], "mb": round(a.dst.stat().st_size / 1048576, 2), "falloff": a.falloff}

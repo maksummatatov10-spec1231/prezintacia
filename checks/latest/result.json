@@ -1,7 +1,7 @@
 {
  "tool": "check",
  "target": "presentations/kukla-iz-vozdushnogo-plastilina.pptx",
- "started": "2026-11-23T17:37:38",
+ "started": "2026-11-23T17:40:11",
  "results": [
   {
    "file": "presentations/kukla-iz-vozdushnogo-plastilina.pptx",
@@ -22,48 +22,48 @@
   }
  ],
  "ok": true,
- "total_ms": 18885.8,
+ "total_ms": 36688.5,
  "steps": [
   {
    "step": "анализ структуры",
    "ok": true,
-   "ms": 322.0
+   "ms": 225.6
   },
   {
    "step": "рендер слайдов (LibreOffice WASM)",
-   "cached": true,
+   "cached": false,
    "ok": true,
-   "ms": 29.4
+   "ms": 19953.8
   },
   {
    "step": "контакт-лист",
    "ok": true,
-   "ms": 1426.9
+   "ms": 1275.4
   },
   {
    "step": "проверка качества (lint)",
    "ok": true,
-   "ms": 1433.3
+   "ms": 1093.5
   },
   {
    "step": "запуск Chromium",
    "ok": true,
-   "ms": 683.8
+   "ms": 870.8
   },
   {
    "step": "скриншоты слайдов: desktop, phone",
    "ok": true,
-   "ms": 13635.6
+   "ms": 12237.9
   },
   {
    "step": "контакт-лист desktop",
    "ok": true,
-   "ms": 771.0
+   "ms": 614.2
   },
   {
    "step": "контакт-лист phone",
    "ok": true,
-   "ms": 276.7
+   "ms": 229.4
   }
  ],
  "files": [

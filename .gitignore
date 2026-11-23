@@ -1,0 +1,23 @@
+# --- heavy environment (re-created by ./setup_env.sh) ---
+.venv/
+node_modules/
+.cache/
+__pycache__/
+*.pyc
+
+# --- raw downloads / scratch ---
+raw/
+tmp/
+*.tmp
+.~lock.*
+~$*
+
+# --- QA runs: only the latest summary is committed (see checks/README.md) ---
+checks/*
+!checks/README.md
+!checks/latest/
+checks/latest/**/*.png
+checks/latest/**/*.jpg
+!checks/latest/**/contact*.png
+!checks/latest/**/contact*.jpg
+image-search/

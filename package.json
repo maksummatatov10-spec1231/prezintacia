@@ -1,0 +1,16 @@
+{
+  "name": "prezintacia-toolkit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node side of the presentation toolkit: headless Chromium (screenshots) + LibreOffice WASM (PPTX rendering)",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "dependencies": {
+    "@deepseek-ai/libreoffice-kit": "0.2.3",
+    "@sparticuz/chromium": "153.0.0",
+    "d3-geo": "^3.1.2",
+    "topojson-client": "^3.1.0"
+  }
+}

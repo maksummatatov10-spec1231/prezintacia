@@ -1,0 +1,5 @@
+/geojson/ne_10m_land.geojson
+/geojson/ne_10m_minor_islands.geojson
+/geojson/ne_10m_admin_0_countries.geojson
+/geojson/ne_10m_lakes.geojson
+/geojson/ne_50m_land.geojson

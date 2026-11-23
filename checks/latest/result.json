@@ -1,0 +1,141 @@
+{
+ "tool": "check",
+ "target": "presentations/drevnyaya-gretsiya.pptx",
+ "started": "2026-11-23T15:44:00",
+ "results": [
+  {
+   "file": "presentations/drevnyaya-gretsiya.pptx",
+   "slides": 20,
+   "issues": {
+    "error": 0,
+    "warn": 0,
+    "info": 0
+   }
+  },
+  {
+   "file": "presentations/drevnyaya-gretsiya.html",
+   "audit": {
+    "desktop": [],
+    "phone": []
+   },
+   "errors": []
+  }
+ ],
+ "ok": true,
+ "total_ms": 18701.9,
+ "steps": [
+  {
+   "step": "анализ структуры",
+   "ok": true,
+   "ms": 244.8
+  },
+  {
+   "step": "рендер слайдов (LibreOffice WASM)",
+   "cached": true,
+   "ok": true,
+   "ms": 36.8
+  },
+  {
+   "step": "контакт-лист",
+   "ok": true,
+   "ms": 1181.2
+  },
+  {
+   "step": "проверка качества (lint)",
+   "ok": true,
+   "ms": 1276.7
+  },
+  {
+   "step": "запуск Chromium",
+   "ok": true,
+   "ms": 524.2
+  },
+  {
+   "step": "скриншоты слайдов: desktop, phone",
+   "ok": true,
+   "ms": 14371.5
+  },
+  {
+   "step": "контакт-лист desktop",
+   "ok": true,
+   "ms": 605.6
+  },
+  {
+   "step": "контакт-лист phone",
+   "ok": true,
+   "ms": 233.8
+  }
+ ],
+ "files": [
+  "drevnyaya-gretsiya/analysis.json",
+  "drevnyaya-gretsiya/analysis.md",
+  "drevnyaya-gretsiya/contact_sheet.jpg",
+  "drevnyaya-gretsiya/lint.json",
+  "drevnyaya-gretsiya/lint.md",
+  "drevnyaya-gretsiya/slides/slide-01.png",
+  "drevnyaya-gretsiya/slides/slide-02.png",
+  "drevnyaya-gretsiya/slides/slide-03.png",
+  "drevnyaya-gretsiya/slides/slide-04.png",
+  "drevnyaya-gretsiya/slides/slide-05.png",
+  "drevnyaya-gretsiya/slides/slide-06.png",
+  "drevnyaya-gretsiya/slides/slide-07.png",
+  "drevnyaya-gretsiya/slides/slide-08.png",
+  "drevnyaya-gretsiya/slides/slide-09.png",
+  "drevnyaya-gretsiya/slides/slide-10.png",
+  "drevnyaya-gretsiya/slides/slide-11.png",
+  "drevnyaya-gretsiya/slides/slide-12.png",
+  "drevnyaya-gretsiya/slides/slide-13.png",
+  "drevnyaya-gretsiya/slides/slide-14.png",
+  "drevnyaya-gretsiya/slides/slide-15.png",
+  "drevnyaya-gretsiya/slides/slide-16.png",
+  "drevnyaya-gretsiya/slides/slide-17.png",
+  "drevnyaya-gretsiya/slides/slide-18.png",
+  "drevnyaya-gretsiya/slides/slide-19.png",
+  "drevnyaya-gretsiya/slides/slide-20.png",
+  "drevnyaya-gretsiya/text.txt",
+  "drevnyaya-gretsiya_html/audit.json",
+  "drevnyaya-gretsiya_html/contact_desktop.jpg",
+  "drevnyaya-gretsiya_html/contact_phone.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-01.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-02.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-03.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-04.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-05.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-06.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-07.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-08.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-09.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-10.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-11.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-12.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-13.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-14.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-15.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-16.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-17.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-18.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-19.jpg",
+  "drevnyaya-gretsiya_html/desktop/slide-20.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-01.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-02.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-03.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-04.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-05.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-06.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-07.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-08.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-09.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-10.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-11.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-12.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-13.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-14.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-15.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-16.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-17.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-18.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-19.jpg",
+  "drevnyaya-gretsiya_html/phone/slide-20.jpg",
+  "log.txt"
+ ]
+}

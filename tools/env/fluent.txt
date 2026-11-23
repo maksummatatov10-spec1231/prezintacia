@@ -1,0 +1,79 @@
+/assets/Classical building/3D/*
+/assets/Water wave/3D/*
+/assets/Snow-capped mountain/3D/*
+/assets/Desert island/3D/*
+/assets/Sailboat/3D/*
+/assets/Dolphin/3D/*
+/assets/Ox/3D/*
+/assets/Volcano/3D/*
+/assets/Lion/3D/*
+/assets/Crown/3D/*
+/assets/Horse/3D/*
+/assets/Shield/3D/*
+/assets/Crossed swords/3D/*
+/assets/Scroll/3D/*
+/assets/Input latin letters/3D/*
+/assets/Person running/Default/3D/*
+/assets/1st place medal/3D/*
+/assets/Trophy/3D/*
+/assets/Olive/3D/*
+/assets/Grapes/3D/*
+/assets/Sheaf of rice/3D/*
+/assets/World map/3D/*
+/assets/Performing arts/3D/*
+/assets/Ballot box with ballot/3D/*
+/assets/Books/3D/*
+/assets/Red question mark/3D/*
+/assets/Light bulb/3D/*
+/assets/Hourglass done/3D/*
+/assets/Compass/3D/*
+/assets/Fire/3D/*
+/assets/Amphora/3D/*
+/assets/Owl/3D/*
+/assets/High voltage/3D/*
+/assets/Trident emblem/3D/*
+/assets/Herb/3D/*
+/assets/Party popper/3D/*
+/assets/Check mark button/3D/*
+/assets/Cross mark/3D/*
+/assets/Glowing star/3D/*
+/assets/Star/3D/*
+/assets/Ship/3D/*
+/assets/Thread/3D/*
+/assets/Rock/3D/*
+/assets/Hammer and pick/3D/*
+/assets/Musical note/3D/*
+/assets/Bust in silhouette/3D/*
+/assets/Cityscape/3D/*
+/assets/Shopping cart/3D/*
+/assets/Dove/3D/*
+/assets/Stadium/3D/*
+/assets/Triangular ruler/3D/*
+/assets/Brain/3D/*
+/assets/Magnifying glass tilted left/3D/*
+/assets/Thinking face/3D/*
+/assets/Star-struck/3D/*
+/assets/Sparkles/3D/*
+/assets/Pushpin/3D/*
+/assets/Waving hand/Default/3D/*
+/assets/Speech balloon/3D/*
+/assets/Old key/3D/*
+/assets/Pick/3D/*
+/assets/Wood/3D/*
+/assets/Mountain/3D/*
+/assets/Sunrise over mountains/3D/*
+/assets/Statue of Liberty/3D/*
+/assets/Flag in hole/3D/*
+/assets/Writing hand/Default/3D/*
+/assets/Open book/3D/*
+/assets/Military helmet/3D/*
+/assets/Bow and arrow/3D/*
+/assets/Globe showing Europe-Africa/3D/*
+/assets/Round pushpin/3D/*
+/assets/Calendar/3D/*
+/assets/Dinosaur/3D/*
+/assets/Sauropod/3D/*
+/assets/Telephone receiver/3D/*
+/assets/School/3D/*
+/assets/Microscope/3D/*
+/assets/Laurel/3D/*

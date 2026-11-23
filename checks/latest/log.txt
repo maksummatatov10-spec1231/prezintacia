@@ -1,0 +1,20 @@
+[      0.1 ms] run 20261123-154400-check-drevnyaya-gretsiya  →  /home/user/prezintacia/checks/runs/20261123-154400-check-drevnyaya-gretsiya
+[     72.6 ms] ▶ анализ структуры
+[    317.4 ms] ■ анализ структуры — 244.8 ms
+[    341.0 ms] ▶ рендер слайдов (LibreOffice WASM)
+[    377.8 ms] ■ рендер слайдов (LibreOffice WASM) — 36.8 ms
+[    400.2 ms] шрифты заменены метрическими аналогами (переносы строк как в PowerPoint): Arial→Arimo
+[    400.2 ms] слайды: перерисовано 0, из кэша 20
+[    400.2 ms] ▶ контакт-лист
+[   1581.4 ms] ■ контакт-лист — 1181.2 ms
+[   1581.5 ms] ▶ проверка качества (lint)
+[   2858.2 ms] ■ проверка качества (lint) — 1276.7 ms
+[   2859.4 ms] ▶ запуск Chromium
+[   3383.6 ms] ■ запуск Chromium — 524.2 ms
+[   3383.6 ms] ▶ скриншоты слайдов: desktop, phone
+[  17755.2 ms] ■ скриншоты слайдов: desktop, phone — 14371.5 ms
+[  17862.1 ms] ▶ контакт-лист desktop
+[  18467.7 ms] ■ контакт-лист desktop — 605.6 ms
+[  18467.8 ms] ▶ контакт-лист phone
+[  18701.6 ms] ■ контакт-лист phone — 233.8 ms
+[  18704.0 ms] готово за 18701.9 ms → /home/user/prezintacia/checks/runs/20261123-154400-check-drevnyaya-gretsiya/summary.md

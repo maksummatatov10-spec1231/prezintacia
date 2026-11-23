@@ -1,0 +1,30 @@
+# Attaches the built presentations (PPTX + HTML) to the GitHub release as downloadable assets.
+# Runs on GitHub's servers whenever the presentations change on this branch (or manually).
+name: Release presentations
+on:
+  push:
+    branches: [arena/19ec83c0-prezintacia]
+    paths: [presentations/**, .github/workflows/release-presentations.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload PPTX + HTML to release v1.0-greece
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          TAG=v1.0-greece
+          FILES="presentations/drevnyaya-gretsiya.pptx presentations/drevnyaya-gretsiya.html"
+          ls -la $FILES
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" $FILES --clobber
+          else
+            gh release create "$TAG" $FILES --target "$GITHUB_SHA" --title "Древняя Греция — презентация (PPTX + HTML)" \
+              --notes "Презентация «Как появилась Древняя Греция»: HTML (телефон) и PPTX (PowerPoint)."
+          fi
+          gh release view "$TAG" --json assets --jq '.assets[] | "\(.name) \(.size)"'

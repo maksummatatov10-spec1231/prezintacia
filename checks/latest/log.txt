@@ -1,11 +1,19 @@
-[      0.1 ms] run 20261123-171505-check-kukla-iz-vozdushnogo-plastilina  →  /home/user/prezintacia/checks/runs/20261123-171505-check-kukla-iz-vozdushnogo-plastilina
-[     86.1 ms] ▶ анализ структуры
-[    419.5 ms] ■ анализ структуры — 333.3 ms
-[    453.7 ms] ▶ рендер слайдов (LibreOffice WASM)
-[   9874.3 ms] ■ рендер слайдов (LibreOffice WASM) — 9420.6 ms
-[   9895.5 ms] слайды: перерисовано 1, из кэша 18
-[   9895.5 ms] ▶ контакт-лист
-[  11128.3 ms] ■ контакт-лист — 1232.7 ms
-[  11128.3 ms] ▶ проверка качества (lint)
-[  12418.1 ms] ■ проверка качества (lint) — 1289.8 ms
-[  12420.3 ms] готово за 12419.2 ms → /home/user/prezintacia/checks/runs/20261123-171505-check-kukla-iz-vozdushnogo-plastilina/summary.md
+[      0.1 ms] run 20261123-171607-check-kukla-iz-vozdushnogo-plastilina  →  /home/user/prezintacia/checks/runs/20261123-171607-check-kukla-iz-vozdushnogo-plastilina
+[     86.9 ms] ▶ анализ структуры
+[    311.9 ms] ■ анализ структуры — 225.0 ms
+[    334.3 ms] ▶ рендер слайдов (LibreOffice WASM)
+[    362.5 ms] ■ рендер слайдов (LibreOffice WASM) — 28.2 ms
+[    379.7 ms] слайды: перерисовано 0, из кэша 19
+[    379.7 ms] ▶ контакт-лист
+[   1429.1 ms] ■ контакт-лист — 1049.3 ms
+[   1429.1 ms] ▶ проверка качества (lint)
+[   2466.6 ms] ■ проверка качества (lint) — 1037.5 ms
+[   2468.4 ms] ▶ запуск Chromium
+[   3013.1 ms] ■ запуск Chromium — 544.7 ms
+[   3013.1 ms] ▶ скриншоты слайдов: desktop, phone
+[  10043.8 ms] ■ скриншоты слайдов: desktop, phone — 7030.6 ms
+[  10116.4 ms] ▶ контакт-лист desktop
+[  10715.2 ms] ■ контакт-лист desktop — 598.7 ms
+[  10715.2 ms] ▶ контакт-лист phone
+[  10939.9 ms] ■ контакт-лист phone — 224.7 ms
+[  10942.5 ms] готово за 10940.3 ms → /home/user/prezintacia/checks/runs/20261123-171607-check-kukla-iz-vozdushnogo-plastilina/summary.md

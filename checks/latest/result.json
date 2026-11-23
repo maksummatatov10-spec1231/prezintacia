@@ -1,7 +1,7 @@
 {
  "tool": "check",
  "target": "presentations/kukla-iz-vozdushnogo-plastilina.pptx",
- "started": "2026-11-23T17:15:05",
+ "started": "2026-11-23T17:16:07",
  "results": [
   {
    "file": "presentations/kukla-iz-vozdushnogo-plastilina.pptx",
@@ -11,31 +11,59 @@
     "warn": 0,
     "info": 0
    }
+  },
+  {
+   "file": "presentations/kukla-iz-vozdushnogo-plastilina.html",
+   "audit": {
+    "desktop": [],
+    "phone": []
+   },
+   "errors": []
   }
  ],
  "ok": true,
- "total_ms": 12419.2,
+ "total_ms": 10940.3,
  "steps": [
   {
    "step": "анализ структуры",
    "ok": true,
-   "ms": 333.3
+   "ms": 225.0
   },
   {
    "step": "рендер слайдов (LibreOffice WASM)",
-   "cached": false,
+   "cached": true,
    "ok": true,
-   "ms": 9420.6
+   "ms": 28.2
   },
   {
    "step": "контакт-лист",
    "ok": true,
-   "ms": 1232.7
+   "ms": 1049.3
   },
   {
    "step": "проверка качества (lint)",
    "ok": true,
-   "ms": 1289.8
+   "ms": 1037.5
+  },
+  {
+   "step": "запуск Chromium",
+   "ok": true,
+   "ms": 544.7
+  },
+  {
+   "step": "скриншоты слайдов: desktop, phone",
+   "ok": true,
+   "ms": 7030.6
+  },
+  {
+   "step": "контакт-лист desktop",
+   "ok": true,
+   "ms": 598.7
+  },
+  {
+   "step": "контакт-лист phone",
+   "ok": true,
+   "ms": 224.7
   }
  ],
  "files": [
@@ -64,6 +92,47 @@
   "kukla-iz-vozdushnogo-plastilina/slides/slide-18.png",
   "kukla-iz-vozdushnogo-plastilina/slides/slide-19.png",
   "kukla-iz-vozdushnogo-plastilina/text.txt",
+  "kukla-iz-vozdushnogo-plastilina_html/audit.json",
+  "kukla-iz-vozdushnogo-plastilina_html/contact_desktop.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/contact_phone.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-01.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-02.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-03.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-04.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-05.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-06.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-07.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-08.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-09.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-10.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-11.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-12.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-13.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-14.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-15.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-16.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-17.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-18.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/desktop/slide-19.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-01.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-02.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-03.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-04.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-05.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-06.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-07.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-08.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-09.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-10.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-11.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-12.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-13.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-14.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-15.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-16.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-17.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-18.jpg",
+  "kukla-iz-vozdushnogo-plastilina_html/phone/slide-19.jpg",
   "log.txt"
  ]
 }

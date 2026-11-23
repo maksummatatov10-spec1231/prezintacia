@@ -27,7 +27,7 @@ from pptkit import office
 from pptkit.env import ROOT
 from pptkit.inspect import inspect_deck
 
-PAGE = """<!doctype html><html lang="ru"><head><meta charset="utf-8">
+PAGE = """<!doctype html><html lang="ru" class="nojs"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="generator" content="pptkit-deck"><meta name="theme-color" content="#111827"><title>{title}</title>
 <style>
@@ -40,6 +40,7 @@ font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overscroll-beha
 @media (orientation:portrait){{.s{{justify-content:flex-start;overflow-y:auto}}.s img{{width:100vw;height:auto;margin-top:max(8px,env(safe-area-inset-top))}}
  .n{{display:block;width:100%;padding:16px 18px 90px;font-size:16px;line-height:1.5;color:#cbd5e1;white-space:pre-wrap}}
  .n b{{display:block;color:#fff;font-size:18px;margin-bottom:6px}}}}
+.nojs body{{overflow:auto}}.nojs .s{{display:flex;position:relative;inset:auto;padding:10px 0}}.nojs #nav,.nojs #bar{{display:none}}
 #bar{{position:fixed;left:0;top:0;height:3px;background:#f59e0b;z-index:9;transition:width .3s}}
 #nav{{position:fixed;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:9;display:flex;gap:8px;
  align-items:center;background:rgba(17,24,39,.75);backdrop-filter:blur(8px);padding:6px 8px;border-radius:99px;font:600 14px system-ui}}
@@ -49,7 +50,7 @@ font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overscroll-beha
 <div id="nav"><button id="p" aria-label="Назад">‹</button><span id="c"></span><button id="x" aria-label="Вперёд">›</button>
 <button id="f" aria-label="Во весь экран">⤢</button></div>
 <script>
-(()=>{{const q=new URLSearchParams(location.search),S=q.has('static');if(S)document.documentElement.classList.add('static');
+(()=>{{document.documentElement.classList.remove('nojs');const q=new URLSearchParams(location.search),S=q.has('static');if(S)document.documentElement.classList.add('static');
 const sl=[...document.querySelectorAll('.s')],N=sl.length;let cur=-1;const bar=document.getElementById('bar'),c=document.getElementById('c');
 function go(i){{i=Math.max(0,Math.min(N-1,i));sl.forEach((s,k)=>s.classList.toggle('on',k===i));cur=i;sl[i].scrollTop=0;
  bar.style.width=((i+1)/N*100)+'%';c.textContent=(i+1)+' / '+N;history.replaceState(null,'','#'+(i+1));

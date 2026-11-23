@@ -1,10 +1,10 @@
 {
  "tool": "check",
- "target": "presentations/drevnyaya-gretsiya.pptx",
- "started": "2026-11-23T15:44:00",
+ "target": "/home/user/prezintacia/presentations/drevnyaya-gretsiya.pptx",
+ "started": "2026-11-23T15:50:26",
  "results": [
   {
-   "file": "presentations/drevnyaya-gretsiya.pptx",
+   "file": "/home/user/prezintacia/presentations/drevnyaya-gretsiya.pptx",
    "slides": 20,
    "issues": {
     "error": 0,
@@ -13,7 +13,7 @@
    }
   },
   {
-   "file": "presentations/drevnyaya-gretsiya.html",
+   "file": "/home/user/prezintacia/presentations/drevnyaya-gretsiya.html",
    "audit": {
     "desktop": [],
     "phone": []
@@ -22,43 +22,43 @@
   }
  ],
  "ok": true,
- "total_ms": 18701.9,
+ "total_ms": 18844.4,
  "steps": [
   {
    "step": "анализ структуры",
    "ok": true,
-   "ms": 244.8
+   "ms": 293.6
   },
   {
    "step": "рендер слайдов (LibreOffice WASM)",
    "cached": true,
    "ok": true,
-   "ms": 36.8
+   "ms": 37.7
   },
   {
    "step": "контакт-лист",
    "ok": true,
-   "ms": 1181.2
+   "ms": 1214.7
   },
   {
    "step": "проверка качества (lint)",
    "ok": true,
-   "ms": 1276.7
+   "ms": 986.8
   },
   {
    "step": "запуск Chromium",
    "ok": true,
-   "ms": 524.2
+   "ms": 470.7
   },
   {
    "step": "скриншоты слайдов: desktop, phone",
    "ok": true,
-   "ms": 14371.5
+   "ms": 14825.9
   },
   {
    "step": "контакт-лист desktop",
    "ok": true,
-   "ms": 605.6
+   "ms": 631.8
   },
   {
    "step": "контакт-лист phone",

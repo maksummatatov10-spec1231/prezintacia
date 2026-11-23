@@ -1,6 +1,6 @@
 # Анализ презентации: `drevnyaya-gretsiya.pptx`
 
-- Размер файла: **5163.4 KB**; слайдов: **20**; формат: 33.87×19.05 см (1.778:1)
+- Размер файла: **5163.3 KB**; слайдов: **20**; формат: 33.87×19.05 см (1.778:1)
 - Шрифты темы: заголовки `Nunito Black`, текст `Nunito`
 - Использованные шрифты: `Nunito ExtraBold`, `Nunito Black`, `Nunito`, `Comfortaa`, `Nunito Black (theme)`, `Nunito (theme)`
 - Встроенные шрифты: `Nunito` (regular/bold), `Nunito ExtraBold` (regular), `Nunito Black` (regular), `Comfortaa` (regular/bold)

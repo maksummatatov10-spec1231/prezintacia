@@ -64,7 +64,8 @@ class Assets:
         return self.cls(S.A / "icons" / f"{name}.png")
 
     def css(self) -> str:
-        return "".join(f".{c}{{background-image:url({self.items[k]})}}" for k, c in self.classes.items()
+        # doubled class = higher specificity, so layout rules can never reset the picture
+        return "".join(f".{c}.{c}{{background-image:url({self.items[k]})}}" for k, c in self.classes.items()
                        if not self.items[k].startswith("data:font"))
 
 
@@ -364,10 +365,10 @@ b{font-weight:800}.acc{color:var(--terra)}.gr{font-family:var(--fg);font-weight:
 @media (orientation:portrait) and (max-width:820px){
  .stage{display:none}.flow{display:block}.arw{display:none}
  .slide{align-items:stretch;justify-content:stretch}
- .fl{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;background:var(--cream);-webkit-overflow-scrolling:touch;
+ .fl{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;background-color:var(--cream);-webkit-overflow-scrolling:touch;
   padding-bottom:70px;scrollbar-width:none}
  .fl::-webkit-scrollbar{display:none}
- .fl.solid{background:var(--sand)}.fl.dark{background:var(--navy);color:#fff}
+ .fl.solid{background-color:var(--sand)}.fl.dark{background-color:var(--navy);color:#fff}
  .fimg{height:44vh;min-height:250px;background-position:center;background-size:cover;background-repeat:no-repeat;position:relative}
  .fimg.tall{height:auto;aspect-ratio:1376/768;min-height:0;background-size:cover}
  .fimg.map{height:auto;min-height:0;background-size:contain;background-color:#BDE7F2}
@@ -407,9 +408,12 @@ b{font-weight:800}.acc{color:var(--terra)}.gr{font-family:var(--fg);font-weight:
  .fphoto figcaption{display:inline-block;margin-top:8px;background:var(--navy);color:#fff;font-weight:800;font-size:13px;padding:5px 12px;border-radius:99px}
  .mband{display:block;height:14px;background-position:left center;background-size:auto 100%;background-repeat:repeat-x}
  .mband.top{position:sticky;top:0;z-index:2}
- .cover,.final{background-position:62% center;background-size:cover;background-repeat:no-repeat;color:#fff;display:flex}
- .cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,42,71,.88) 0%,rgba(14,42,71,.55) 55%,rgba(14,42,71,.82) 100%)}
- .cover .in{position:relative;margin:auto 0;padding:28px 22px 80px;width:100%}
+ .cover,.final{background-position:62% bottom;background-size:cover;background-repeat:no-repeat;color:#fff;display:flex}
+ /* text sits in the sky (top), the bright harbour illustration stays visible at the bottom */
+ .cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,42,71,.92) 0%,rgba(14,42,71,.78) 42%,
+  rgba(14,42,71,.25) 66%,rgba(14,42,71,0) 80%,rgba(14,42,71,.35) 100%)}
+ .final .shade{background:linear-gradient(180deg,rgba(14,42,71,.92) 0%,rgba(14,42,71,.8) 55%,rgba(14,42,71,.2) 78%,rgba(14,42,71,.35) 100%)}
+ .cover .in{position:relative;margin:0;padding:max(34px,env(safe-area-inset-top)) 22px 120px;width:100%}
  .cover .kick{background:var(--gold);color:var(--navy)}
  .cover h1{font-weight:900;font-size:clamp(36px,11vw,48px);line-height:1.02;margin:14px 0 14px}
  .cover .mband{width:70%;margin-bottom:14px}
@@ -459,6 +463,18 @@ b{font-weight:800}.acc{color:var(--terra)}.gr{font-family:var(--fg);font-weight:
 }
 @media (prefers-reduced-motion:reduce){.slide,.slide *{animation:none!important;transition:none!important}
  .stage [data-eff]:not([data-trig]),.slide .fi{opacity:1!important;transform:none!important}}
+/* ---------- tablets in portrait: same vertical layout, scaled up (bigger text, no empty half-screen) */
+@media (orientation:portrait) and (min-width:600px) and (max-width:820px){.fl{zoom:1.32}}
+/* ---------- no JavaScript (iOS Quick Look, in-app previews): all slides stacked, everything visible */
+:root{--sw:min(calc(100vw - 56px),calc((100vh - 56px)*1.7778))}
+.nojs body{overflow:auto;height:auto}.nojs #deck{position:static}
+.nojs .slide{display:flex;position:relative;inset:auto;padding:14px 0}
+.nojs .stage{--sw:min(96vw,1400px)}
+.nojs .stage [data-eff],.nojs .stage [data-trig],.nojs .stage [data-fb]{opacity:1!important;transform:none!important;animation:none!important}
+.nojs #nav,.nojs .arw,.nojs #fs,.nojs #count,.nojs #bar,.nojs .zhint,.nojs .hint{display:none}
+@media (orientation:portrait) and (max-width:820px){.nojs .slide{padding:0}.nojs .fl{position:relative;inset:auto;overflow:visible;padding-bottom:28px}
+ .nojs .slide .fi{opacity:1;transform:none}.nojs .cover{min-height:92vh}.nojs .explain{max-height:none;opacity:1;padding:12px 14px}
+ .nojs .mband.top{position:static}}
 @media print{body{overflow:visible;background:#fff}#deck{position:static}.slide{position:relative;visibility:visible;opacity:1;
  page-break-after:always;height:100vh}#nav,.arw,#bar,#fs,#count{display:none}.stage{box-shadow:none}
  .stage [data-eff]{opacity:1!important;animation:none!important}}
@@ -466,6 +482,7 @@ b{font-weight:800}.acc{color:var(--terra)}.gr{font-family:var(--fg);font-weight:
 
 JS = r"""
 (()=>{
+document.documentElement.classList.remove('nojs');
 const q=new URLSearchParams(location.search);const STATIC=q.has('static')||q.has('print');
 const slides=[...document.querySelectorAll('.slide')];const N=slides.length;let cur=-1;
 if(STATIC)document.documentElement.classList.add('static');
@@ -503,6 +520,7 @@ function next(){go(cur+1)}function prev(){go(cur-1)}
 document.getElementById('next').onclick=next;document.getElementById('prev').onclick=prev;
 document.getElementById('fs').onclick=()=>{const d=document.documentElement;
  (document.fullscreenElement?document.exitFullscreen():(d.requestFullscreen||d.webkitRequestFullscreen).call(d)).catch?.(()=>{});};
+addEventListener('hashchange',()=>{const n=parseInt(location.hash.slice(1));if(n&&n-1!==cur)go(n-1)});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&zoom.classList.contains('on')){zoom.classList.remove('on');return}
  if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next()}
  else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
@@ -585,7 +603,7 @@ def render(slides: list, out: Path) -> dict:
             f'@font-face{{font-family:Comfortaa;src:url({assets.items[ck]}) format("woff2");font-weight:300 700;font-display:block}}')
     css = CSS.replace('@font-face{font-family:Nunito;src:url(var(--x)) format("woff2");font-weight:200 1000}\n', "")
     doc = f"""<!doctype html>
-<html lang="ru"><head><meta charset="utf-8">
+<html lang="ru" class="nojs"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0E2A47"><meta name="generator" content="pptkit-deck"><meta name="apple-mobile-web-app-capable" content="yes">
 <title>Как появилась Древняя Греция — презентация для детей</title>

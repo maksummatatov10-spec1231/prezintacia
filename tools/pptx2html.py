@@ -80,7 +80,12 @@ def convert(src: Path, out: Path, dpi: int = 160, notes: bool = True, quality: i
         uri = "data:image/webp;base64," + base64.b64encode(buf.getvalue()).decode()
         sd = info["slides"][i] if i < len(info["slides"]) else {}
         title = sd.get("title") or f"Слайд {i + 1}"
-        texts = [sh.get("text", "") for sh in sd.get("shapes", []) if sh.get("text")]
+        texts = []
+        for sh in sd.get("shapes", []):
+            t = sh.get("text")
+            t = t.get("text", "") if isinstance(t, dict) else (t or "")
+            if t.strip():
+                texts.append(t.strip())
         body = (sd.get("notes") or "").strip() if notes else ""
         if not body:  # no notes → slide text for comfortable reading on a phone
             body = "\n".join(t for t in texts if t.strip() and t.strip() != title)[:1500]

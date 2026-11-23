@@ -1,7 +1,7 @@
 """make_html.py — the deck as ONE self-contained HTML for a phone / any browser.
 
 Same content as the .pptx (19 slides), but rebuilt for a screen:
-* background: 4 blurred paint blobs drifting on CSS keyframes (the video's look), switches off automatically
+* background: the same paint-blob picture as the PPTX, drifting slowly (one GPU transform, no blur)
   with prefers-reduced-motion;
 * 16:9 stage scaled to the screen; on a portrait phone the slide sits on top with the speaker notes below;
 * navigation: swipe, keys (→ ← space, F full screen, N notes window, B black screen), dots, #hash deep links;
@@ -263,25 +263,18 @@ CSS = """
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden;background:#1b1210;font-family:Nunito,"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--ink)}
 img{display:block;max-width:100%}
-/* ---------- animated paint background (4 muted paints, slowly drifting) */
-.paint{position:fixed;inset:-8%;z-index:0;contain:paint;background:#FFF6E6 url(IMG:poster) center/cover no-repeat;
- animation:drift 74s ease-in-out infinite alternate;will-change:transform;transform-origin:50% 50%}
-.paint i{position:absolute;width:46vmax;height:46vmax;border-radius:50%;opacity:.42}
-.paint i:nth-child(1){background:radial-gradient(closest-side,rgba(233,98,91,.85),rgba(233,98,91,0) 70%);left:-14%;top:-18%;animation:pa 34s ease-in-out infinite}
-.paint i:nth-child(2){background:radial-gradient(closest-side,rgba(242,177,52,.8),rgba(242,177,52,0) 70%);right:-18%;top:-14%;animation:pb 44s ease-in-out infinite -6s}
-.paint i:nth-child(3){background:radial-gradient(closest-side,rgba(143,180,122,.75),rgba(143,180,122,0) 70%);right:-12%;bottom:-22%;animation:pc 38s ease-in-out infinite -14s}
-.paint i:nth-child(4){background:radial-gradient(closest-side,rgba(236,169,165,.8),rgba(236,169,165,0) 70%);left:-16%;bottom:-24%;animation:pd 48s ease-in-out infinite -22s}
-@keyframes drift{0%{transform:scale(1.04) translate(0,0)}100%{transform:scale(1.12) translate(-2%,-2%)}}
-@keyframes pa{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(16vw,10vh) scale(1.12)}66%{transform:translate(-4vw,20vh) scale(.94)}}
-@keyframes pb{0%,100%{transform:translate(0,0) scale(1.04)}33%{transform:translate(-15vw,13vh) scale(.92)}66%{transform:translate(-6vw,-8vh) scale(1.14)}}
-@keyframes pc{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(-14vw,-12vh) scale(1.16)}70%{transform:translate(8vw,-18vh) scale(.92)}}
-@keyframes pd{0%,100%{transform:translate(0,0) scale(.97)}35%{transform:translate(12vw,-14vh) scale(1.1)}70%{transform:translate(20vw,6vh) scale(1)}}
+/* ---------- animated paint background: ONE image, drifted by a cheap GPU transform (phone-friendly) */
+.paint{position:fixed;inset:-6%;z-index:0;background:#FFF5E3 url(IMG:paint) center/cover no-repeat;
+ animation:drift 68s ease-in-out infinite alternate;will-change:transform;transform-origin:50% 50%}
+@keyframes drift{0%{transform:scale(1.06) translate3d(0,0,0)}
+  50%{transform:scale(1.12) translate3d(-1.4%,1.2%,0)}
+  100%{transform:scale(1.07) translate3d(1.6%,-1.2%,0)}}
 /* ---------- slides */
 .slide{position:fixed;inset:0;display:none;place-items:center;z-index:1}
 .slide.on{display:grid}
 .stage{position:relative;width:min(100vw,calc(100vh*16/9));aspect-ratio:16/9;background:var(--doc);overflow:hidden;container-type:size;
  box-shadow:0 30px 80px rgba(42,26,23,.28);border-radius:2px}
-.stage .bgc{position:absolute;inset:0;background:radial-gradient(120% 100% at 12% 8%,#FFF3DF 0,#FFF8EC 55%,#FFEFD9 100%)}
+.stage .bgc{position:absolute;inset:0;background:#FFF5E3 url(IMG:paint) center/cover no-repeat;animation:drift 68s ease-in-out infinite alternate;will-change:transform}
 .slide[data-bg=dark] .stage{background:#751713}
 .slide[data-bg=dark] .bgc{background:radial-gradient(120% 100% at 18% 8%,#8E1D17 0,#751713 58%,#5C100D 100%)}
 .pad{position:relative;height:100%;padding:6.2% 5.4%;display:flex;flex-direction:column;gap:1.6%}
@@ -414,7 +407,8 @@ ul.checks li:after{content:"✓";position:absolute}
 @media (orientation:landscape) and (min-aspect-ratio:3/2){.stage{font-size:clamp(8px,1.15vw,26px)}}
 @media (prefers-reduced-motion:reduce){.paint,.paint i{animation:none!important}}
 /* screenshots / print: freeze the background so capture is instant and pixel-identical */
-html.static .paint,html.static .paint i{animation:none!important}
+html.static *,html.static *:before,html.static *:after{animation:none!important;transition:none!important}
+html.static .paint{transform:scale(1.08)}
 html.static #nav,html.static #bar,html.static #toast{opacity:0;pointer-events:none}
 /* ---------- chrome */
 #bar{position:fixed;left:0;top:0;height:3px;background:var(--red);z-index:12;transition:width .3s}
@@ -536,7 +530,7 @@ def main() -> int:
 <meta name="generator" content="pptkit-deck"><meta name="theme-color" content="#2A1A17">
 <title>Кукла из воздушного пластилина — презентация</title>
 <style>{CSS}</style></head><body>
-<div class="paint" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="paint" aria-hidden="true"></div>
 <div id="bar"></div>
 {"".join(body)}
 <div id="nav"><button id="p" aria-label="Назад">‹</button><span class="dotsnav">{nav}</span>

@@ -30,20 +30,23 @@ import _boot  # noqa: F401  (re-execs inside .venv)
 from PIL import Image
 
 # cream canvas + four paints (RGB) — the palette of the doll's skirt
-BASE = (255, 246, 232)
-PAINTS = [(229, 98, 91), (242, 177, 52), (143, 180, 122), (236, 170, 166)]
+BASE = (255, 245, 227)
+PAINTS = [(228, 84, 66), (243, 170, 45), (126, 168, 92), (238, 148, 140)]
 
 # blob = (colour index, centre x/y (0..1), orbit amplitude x/y, cycles x/y, phase, radius x/y, angle, amp, pulses)
 BLOBS = [
-    (0, 0.16, 0.24, 0.16, 0.10, 1, 2, 0.7, 0.34, 0.26, -18, 0.42, 1),
-    (1, 0.74, 0.20, 0.12, 0.14, 2, 1, 2.1, 0.28, 0.33, 24, 0.40, 2),
-    (2, 0.82, 0.78, 0.15, 0.12, 1, 1, 4.0, 0.36, 0.24, -32, 0.34, 1),
-    (3, 0.30, 0.82, 0.18, 0.11, 2, 3, 5.2, 0.30, 0.28, 12, 0.38, 2),
-    (1, 0.46, 0.52, 0.22, 0.16, 1, 2, 3.3, 0.22, 0.20, 40, 0.26, 3),   # a small pale one in the middle
+    # ci, cx, cy, ax, ay, kx, ky, phase, rx, ry, angle, amp, pulses — rounder, watercolour-like patches
+    (0, 0.12, 0.18, 0.10, 0.08, 1, 2, 0.7, 0.30, 0.28, -18, 0.58, 1),
+    (1, 0.78, 0.14, 0.09, 0.10, 2, 1, 2.1, 0.26, 0.30, 24, 0.52, 2),
+    (2, 0.88, 0.76, 0.09, 0.09, 1, 1, 4.0, 0.30, 0.27, -32, 0.46, 1),
+    (3, 0.20, 0.86, 0.11, 0.08, 2, 3, 5.2, 0.28, 0.25, 12, 0.50, 2),
+    (1, 0.50, 0.50, 0.14, 0.10, 1, 2, 3.3, 0.20, 0.19, 40, 0.26, 3),
+    (0, 0.38, 0.06, 0.12, 0.06, 2, 2, 1.1, 0.18, 0.17, -8, 0.26, 2),
+    (3, 0.62, 0.94, 0.10, 0.06, 1, 3, 0.3, 0.22, 0.16, 30, 0.30, 2),
 ]
 
 
-def render(t: float, w: int, h: int, intensity: float = 1.0) -> np.ndarray:
+def render(t: float, w: int, h: int, intensity: float = 1.0, falloff: float = 1.35) -> np.ndarray:
     """One frame at phase t∈[0,1). Returns uint8 HxWx3."""
     ys, xs = np.mgrid[0:h, 0:w].astype(np.float32)
     x = (xs + 0.5) / w
@@ -55,15 +58,17 @@ def render(t: float, w: int, h: int, intensity: float = 1.0) -> np.ndarray:
         # torus-wrapped centre → the pattern is seamless when shifted by one canvas in x or y
         px = (cx + ax * math.sin(tau * (kx * t) + ph)) % 1.0
         py = (cy + ay * math.cos(tau * (ky * t) + ph * 1.7)) % 1.0
-        dx = ((x - px + 0.5) % 1.0) - 0.5
+        # work in "height units" so a blob with rx≈ry looks round on a 16:9 slide
+        ar = w / h
+        dx = (((x - px + 0.5) % 1.0) - 0.5) * ar
         dy = ((y - py + 0.5) % 1.0) - 0.5
         th = math.radians(ang + 18 * math.sin(tau * t + ph))
         ca, sa = math.cos(th), math.sin(th)
-        xr = dx * ca + dy * sa * (w / h)
-        yr = -dx * sa + dy * ca * (w / h)
+        xr = dx * ca + dy * sa
+        yr = -dx * sa + dy * ca
         pulse = 1 + 0.14 * math.sin(tau * pulses * t + ph)
         d = (xr / (rx * pulse)) ** 2 + (yr / (ry * pulse)) ** 2
-        a = amp * np.exp(-1.35 * d) * intensity
+        a = amp * np.exp(-falloff * d) * intensity
         col = np.array(PAINTS[ci], np.float32)
         out *= (1 - a[..., None])
         out += a[..., None] * col
@@ -78,7 +83,8 @@ def _ffmpeg() -> str:
     return imageio_ffmpeg.get_ffmpeg_exe()
 
 
-def make_video(dst: Path, seconds: float, fps: int, size: tuple[int, int], crf: int, sim: int, poster: Path | None):
+def make_video(dst: Path, seconds: float, fps: int, size: tuple[int, int], crf: int, sim: int, poster: Path | None,
+               falloff: float = 1.35, intensity: float = 1.0):
     dst.parent.mkdir(parents=True, exist_ok=True)
     w, h = size
     sw, sh = sim, round(sim * h / w)
@@ -92,7 +98,7 @@ def make_video(dst: Path, seconds: float, fps: int, size: tuple[int, int], crf: 
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
     rng = np.random.default_rng(7)
     for i in range(n):
-        fr = render(i / n, sw, sh)
+        fr = render(i / n, sw, sh, intensity=intensity, falloff=falloff)
         fr += rng.normal(0, 1.1, fr.shape)  # dither: kills the banding in smooth gradients
         proc.stdin.write(np.clip(fr, 0, 255).astype(np.uint8).tobytes())
     proc.stdin.close()
@@ -100,7 +106,7 @@ def make_video(dst: Path, seconds: float, fps: int, size: tuple[int, int], crf: 
     if proc.wait() != 0:
         raise RuntimeError(f"ffmpeg failed: {err[-800:]}")
     if poster:
-        img = Image.fromarray(np.clip(render(0.0, w // 2, h // 2) + rng.normal(0, 1.0, (h // 2, w // 2, 3)), 0, 255)
+        img = Image.fromarray(np.clip(render(0.0, w // 2, h // 2, falloff=falloff) + rng.normal(0, 1.0, (h // 2, w // 2, 3)), 0, 255)
                               .astype(np.uint8)).resize((w, h), Image.BICUBIC)
         poster.parent.mkdir(parents=True, exist_ok=True)
         img.save(poster, quality=92, optimize=True)
@@ -118,9 +124,23 @@ def main() -> int:
     ap.add_argument("--sim", type=int, default=480, help="simulation width; the blobs are blurred, upscaling is free")
     ap.add_argument("--still", type=Path, help="also write a poster PNG/JPG")
     ap.add_argument("--frames", type=int, default=0, help="write N preview frames as a contact strip")
+    ap.add_argument("--intensity", type=float, default=1.0, help="colour strength")
+    ap.add_argument("--falloff", type=float, default=1.35, help="larger = crisper edges (less blur); ~2.1 is 'paint'")
+    ap.add_argument("--quality", type=int, default=92)
     a = ap.parse_args()
     w, h = (int(v) for v in a.size.lower().split("x"))
-    info = make_video(a.dst, a.seconds, a.fps, (w, h), a.crf, a.sim, a.still)
+    if a.seconds <= 0:  # still only
+        rng = np.random.default_rng(7)
+        img = Image.fromarray(np.clip(render(0.0, w, h, intensity=a.intensity, falloff=a.falloff) + rng.normal(0, 0.8, (h, w, 3)), 0, 255)
+                              .astype(np.uint8))
+        a.dst.parent.mkdir(parents=True, exist_ok=True)
+        img.save(a.dst, quality=a.quality, optimize=True, subsampling=0)
+        info = {"size": [w, h], "mb": round(a.dst.stat().st_size / 1048576, 2), "falloff": a.falloff}
+        if a.still:
+            img.save(a.still, quality=a.quality, optimize=True, subsampling=0)
+        print(json.dumps(info, ensure_ascii=False))
+        return 0
+    info = make_video(a.dst, a.seconds, a.fps, (w, h), a.crf, a.sim, a.still, falloff=a.falloff, intensity=a.intensity)
     if a.frames:
         sheet = Image.new("RGB", (w // 2, (h // 2) * a.frames))
         for i in range(a.frames):

@@ -123,59 +123,18 @@ def add_picture(slide_xml: bytes, *, x: int, y: int, w: int, h: int, embed_rid: 
     return etree.tostring(root, xml_declaration=True, encoding="UTF-8", standalone=True)
 
 
-def add_video_background(slide_xml: bytes, *, w: int, h: int, poster_rid: str, video_link_rid: str,
-                         video_embed_rid: str, name: str = "Фон · краски") -> bytes:
-    """Full-bleed video behind everything + timing that starts & loops it when the slide opens."""
+def add_backdrop(slide_xml: bytes, *, w: int, h: int, embed_rid: str, name: str = "Фон · краски") -> bytes:
+    """Full-bleed background picture, bottom of the z-order. Plain png/jpg only — no media, no timing:
+    PowerPoint opens such a file without any repair prompt."""
     root = etree.fromstring(slide_xml)
     tree = _sp_tree(root)
     assert tree is not None, "p:spTree not found"
     spid = _max_id(root) + 1
-    pic = _pic_el(tree, spid, name, (0, 0, w, h), poster_rid, video=(video_link_rid, video_embed_rid),
-                  descr="Живой фон: размытые пятна красок")
+    pic = _pic_el(tree, spid, name, (0, 0, w, h), embed_rid,
+                  descr="Фон: размытые пятна красок")
     pic.attrib.pop("__new", None)
     tree.insert(2, pic)
 
-    # timing: <p:timing><p:tnLst><p:par><p:cTn nodeType="tmRoot">… video autoplay, loop
-    timing = root.find(q(P, "timing"))
-    if timing is None:
-        timing = etree.SubElement(root, q(P, "timing"))
-    tl = etree.SubElement(timing, q(P, "tnLst"))
-    par = etree.SubElement(tl, q(P, "par"))
-    c1 = etree.SubElement(par, q(P, "cTn")); c1.set("id", "1"); c1.set("dur", "indefinite")
-    c1.set("restart", "never"); c1.set("nodeType", "tmRoot")
-    ch1 = etree.SubElement(c1, q(P, "childTnLst"))
-    seq = etree.SubElement(ch1, q(P, "seq")); seq.set("concurrent", "1"); seq.set("nextAc", "seek")
-    c2 = etree.SubElement(seq, q(P, "cTn")); c2.set("id", "2"); c2.set("dur", "indefinite"); c2.set("nodeType", "mainSeq")
-    ch2 = etree.SubElement(c2, q(P, "childTnLst"))
-    par2 = etree.SubElement(ch2, q(P, "par"))
-    c3 = etree.SubElement(par2, q(P, "cTn")); c3.set("id", "3"); c3.set("fill", "hold")
-    st3 = etree.SubElement(c3, q(P, "stCondLst"))
-    cond = etree.SubElement(st3, q(P, "cond")); cond.set("delay", "indefinite")
-    cond = etree.SubElement(st3, q(P, "cond")); cond.set("evt", "onBegin"); cond.set("delay", "0")
-    tn = etree.SubElement(cond, q(P, "tn")); tn.set("val", "2")
-    ch3 = etree.SubElement(c3, q(P, "childTnLst"))
-    par3 = etree.SubElement(ch3, q(P, "par"))
-    c4 = etree.SubElement(par3, q(P, "cTn")); c4.set("id", "4"); c4.set("fill", "hold")
-    st4 = etree.SubElement(c4, q(P, "stCondLst"))
-    cond = etree.SubElement(st4, q(P, "cond")); cond.set("delay", "0")
-    ch4 = etree.SubElement(c4, q(P, "childTnLst"))
-    video = etree.SubElement(ch4, q(P, "video"))
-    mn = etree.SubElement(video, q(P, "cMediaNode"))
-    mn.set("vol", "800"); mn.set("numLoop", "0"); mn.set("showWhenStopped", "1"); mn.set("fullScrn", "0")
-    c5 = etree.SubElement(mn, q(P, "cTn")); c5.set("id", "5"); c5.set("fill", "hold"); c5.set("display", "0")
-    st5 = etree.SubElement(c5, q(P, "stCondLst"))
-    cond = etree.SubElement(st5, q(P, "cond")); cond.set("delay", "0")
-    en5 = etree.SubElement(c5, q(P, "endCondLst"))
-    cond = etree.SubElement(en5, q(P, "cond")); cond.set("evt", "onStopAudio"); cond.set("delay", "0")
-    tg = etree.SubElement(cond, q(P, "tgtEl")); etree.SubElement(tg, q(P, "sldTgt"))
-    tg = etree.SubElement(mn, q(P, "tgtEl"))
-    sp = etree.SubElement(tg, q(P, "spTgt")); sp.set("spid", str(spid))
-    prev = etree.SubElement(seq, q(P, "prevCondLst"))
-    cond = etree.SubElement(prev, q(P, "cond")); cond.set("evt", "onPrev"); cond.set("delay", "0")
-    tg = etree.SubElement(cond, q(P, "tgtEl")); etree.SubElement(tg, q(P, "sldTgt"))
-    nxt = etree.SubElement(seq, q(P, "nextCondLst"))
-    cond = etree.SubElement(nxt, q(P, "cond")); cond.set("evt", "onNext"); cond.set("delay", "0")
-    tg = etree.SubElement(cond, q(P, "tgtEl")); etree.SubElement(tg, q(P, "sldTgt"))
     return etree.tostring(root, xml_declaration=True, encoding="UTF-8", standalone=True)
 
 

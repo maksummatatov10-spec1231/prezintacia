@@ -2,7 +2,7 @@
 
 1. mouth of the doll → black on slides 13–15 (new media, same rIds / crop)
 2. the girl's photo on slide 18 (new picture part, rounded, soft shadow)
-3. animated paint-blob background on EVERY slide: a looping mp4 (autoplay + loop, stored once) + poster
+3. paint-blob background on EVERY slide as ONE jpeg (plain picture part — opens in any PowerPoint, no repair prompt)
 4. errors: slide-17 note text had 4 leading spaces (text ran off the card), slide-18 low contrast,
    slide-1 title box too short, 13 pt labels → 14 pt
 
@@ -26,13 +26,13 @@ from lxml import etree  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "input/kukla-iz-vozdushnogo-plastilina.pptx"
 OUT = ROOT / "presentations/kukla-iz-vozdushnogo-plastilina.pptx"
-VIDEO = ROOT / "tools/deck_kukla/assets/bg/paint_loop.mp4"
-POSTER = ROOT / "tools/deck_kukla/assets/bg/paint_poster.jpg"
+BG = ROOT / "tools/deck_kukla/assets/bg/paint.jpg"
+
 PHOTO = ROOT / "tools/deck_kukla/assets/photo/girl_square.jpg"
 MOUTHS = {n: ROOT / f"tools/deck_kukla/assets/mouth/slide{n}.jpg" for n in (13, 14, 15)}
 
 SLIDE_W, SLIDE_H = 12192000, 6858000
-NO_VIDEO = {18, 19}  # photo slide: the photo must stay visible; final slide: dark, white text
+NO_BG = {19}  # the final slide stays dark: white type needs it
 P = X.P
 A = X.A
 
@@ -130,15 +130,15 @@ def add_photo(xml: bytes) -> bytes:
 # --------------------------------------------------------------------------- assembly
 def main() -> int:
     t0 = time.time()
-    assert VIDEO.exists() and POSTER.exists() and PHOTO.exists(), "assets missing"
+    assert BG.exists() and PHOTO.exists(), "assets missing"
     for p in MOUTHS.values():
         assert p.exists(), p
     tmp = OUT.with_suffix(".tmp.pptx")
-    video_bytes, poster_bytes, photo_bytes = VIDEO.read_bytes(), POSTER.read_bytes(), PHOTO.read_bytes()
+    bg_bytes, photo_bytes = BG.read_bytes(), PHOTO.read_bytes()
 
     with zipfile.ZipFile(SRC) as zin:
         infos = zin.infolist()
-        ct = X.ensure_default(zin.read("[Content_Types].xml"), "mp4", "video/mp4")
+        ct = zin.read("[Content_Types].xml")
         # map: which media part holds the step photo of slides 13–15
         media = {}
         for n in (13, 14, 15):
@@ -168,22 +168,15 @@ def main() -> int:
                         rels = X.add_rel(rels, "rId90", "image", "../media/girl_with_doll.jpg")
                         data = add_photo(data)
                         log.append("слайд 18: добавлено фото девочки с куклой")
-                    if n == 18:  # no video here (the photo must stay visible) — but keep the same background
-                        rels = X.add_rel(rels, "rId93", "image", "../media/paint_poster.jpg")
-                        data = X.set_bg_image(data, "rId93")
-                    if n not in NO_VIDEO:
-                        rels = X.add_rel(rels, "rId91", "video", "../media/paint_loop.mp4")
-                        rels = X.add_rel(rels, "rId92", "video", "../media/paint_loop.mp4")
-                        rels = X.add_rel(rels, "rId93", "image", "../media/paint_poster.jpg")
-                        data = X.add_video_background(data, w=SLIDE_W, h=SLIDE_H, poster_rid="rId93",
-                                                      video_link_rid="rId91", video_embed_rid="rId92")
-                        data = X.set_bg_image(data, "rId93")  # same frame as a static fallback
+                    if n not in NO_BG:
+                        rels = X.add_rel(rels, "rId93", "image", "../media/paint.jpg")
+                        data = X.set_bg_image(data, "rId93")        # the real slide background
+                        data = X.add_backdrop(data, w=SLIDE_W, h=SLIDE_H, embed_rid="rId93")  # + cover picture
                     data = X.set_fade(data, "med")
                     zout.writestr(rels_name, rels)
                 zout.writestr(it, data)
             zout.writestr("[Content_Types].xml", ct)
-            zout.writestr("ppt/media/paint_loop.mp4", video_bytes)
-            zout.writestr("ppt/media/paint_poster.jpg", poster_bytes)
+            zout.writestr("ppt/media/paint.jpg", bg_bytes)
             zout.writestr("ppt/media/girl_with_doll.jpg", photo_bytes)
     shutil.move(tmp, OUT)
     print("\n".join(log))

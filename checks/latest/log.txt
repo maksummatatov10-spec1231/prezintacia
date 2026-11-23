@@ -1,8 +1,20 @@
-[      0.1 ms] run 20261123-155104-snap-test  →  /home/user/prezintacia/checks/runs/20261123-155104-snap-test
-[      0.4 ms] ▶ запуск Chromium
-[    513.9 ms] ■ запуск Chromium — 513.5 ms
-[    514.2 ms] ▶ html-презентация test.html: phone
-[   1111.1 ms] ■ html-презентация test.html: phone — 596.8 ms
-[   1111.2 ms] ▶ контакт-лист
-[   1215.8 ms] ■ контакт-лист — 104.7 ms
-[   1262.3 ms] готово за 1261.5 ms → /home/user/prezintacia/checks/runs/20261123-155104-snap-test/summary.md
+[      0.2 ms] run 20261123-155309-check-drevnyaya-gretsiya  →  /home/user/prezintacia/checks/runs/20261123-155309-check-drevnyaya-gretsiya
+[     94.3 ms] ▶ анализ структуры
+[    347.8 ms] ■ анализ структуры — 253.6 ms
+[    371.8 ms] ▶ рендер слайдов (LibreOffice WASM)
+[    409.2 ms] ■ рендер слайдов (LibreOffice WASM) — 37.3 ms
+[    433.2 ms] шрифты заменены метрическими аналогами (переносы строк как в PowerPoint): Arial→Arimo
+[    433.2 ms] слайды: перерисовано 0, из кэша 20
+[    433.3 ms] ▶ контакт-лист
+[   1627.2 ms] ■ контакт-лист — 1193.9 ms
+[   1627.3 ms] ▶ проверка качества (lint)
+[   2903.5 ms] ■ проверка качества (lint) — 1276.3 ms
+[   2905.1 ms] ▶ запуск Chromium
+[   3400.3 ms] ■ запуск Chromium — 495.0 ms
+[   3400.3 ms] ▶ скриншоты слайдов: desktop, phone
+[  18575.8 ms] ■ скриншоты слайдов: desktop, phone — 15175.4 ms
+[  18653.8 ms] ▶ контакт-лист desktop
+[  19284.8 ms] ■ контакт-лист desktop — 631.0 ms
+[  19284.9 ms] ▶ контакт-лист phone
+[  19543.1 ms] ■ контакт-лист phone — 258.2 ms
+[  19545.8 ms] готово за 19543.5 ms → /home/user/prezintacia/checks/runs/20261123-155309-check-drevnyaya-gretsiya/summary.md

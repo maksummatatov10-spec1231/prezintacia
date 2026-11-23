@@ -6,7 +6,11 @@
 | [`presentations/drevnyaya-gretsiya.pptx`](presentations/drevnyaya-gretsiya.pptx) | PowerPoint: 20 слайдов, анимации, переходы, кликабельная викторина, встроенные шрифты, заметки докладчика |
 | [`presentations/drevnyaya-gretsiya.html`](presentations/drevnyaya-gretsiya.html) | Один HTML-файл, работает офлайн. На компьютере — 16:9 с анимациями, на телефоне — своя вертикальная раскладка, свайпы, увеличение карт, викторина |
 
-Обе версии также лежат в **Releases** репозитория. HTML откройте в браузере телефона (Chrome или Safari): после скачивания файл не требует интернета.
+**Скачать из релиза [v1.0-greece](https://github.com/maksummatatov10-spec1231/prezintacia/releases/tag/v1.0-greece):** [HTML](https://github.com/maksummatatov10-spec1231/prezintacia/releases/download/v1.0-greece/drevnyaya-gretsiya.html) · [PPTX](https://github.com/maksummatatov10-spec1231/prezintacia/releases/download/v1.0-greece/drevnyaya-gretsiya.pptx)
+
+HTML откройте в браузере телефона (Chrome или Safari): после скачивания интернет не нужен. В просмотрщике без JavaScript (например, «Файлы» на iPhone) все слайды показываются подряд, по вертикали.
+
+Файлы в релизе обновляются автоматически: workflow `.github/workflows/release-presentations.yml` срабатывает при каждом изменении `presentations/` и заново прикрепляет PPTX и HTML к релизу.
 
 ## ⚡ Установка окружения (1 команда)
 ```bash

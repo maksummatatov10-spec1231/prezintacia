@@ -21,3 +21,6 @@ checks/latest/**/*.jpg
 !checks/latest/**/contact*.png
 !checks/latest/**/contact*.jpg
 image-search/
+
+# --- per-project scratch (assets live in tools/) ---
+work/

@@ -1,31 +1,17 @@
-# check: presentations/drevnyaya-gretsiya.pptx
+# check: presentations/kukla-iz-vozdushnogo-plastilina.pptx
 
-- Папка результата: `/home/user/prezintacia/checks/runs/20261123-155309-check-drevnyaya-gretsiya`
-- Время: **19543.5 ms** · шаги: анализ структуры 253.6 ms, рендер слайдов (LibreOffice WASM) 37.3 ms, контакт-лист 1193.9 ms, проверка качества (lint) 1276.3 ms, запуск Chromium 495.0 ms, скриншоты слайдов: desktop, phone 15175.4 ms, контакт-лист desktop 631.0 ms, контакт-лист phone 258.2 ms
+- Папка результата: `/home/user/prezintacia/checks/runs/20261123-171505-check-kukla-iz-vozdushnogo-plastilina`
+- Время: **12419.2 ms** · шаги: анализ структуры 333.3 ms, рендер слайдов (LibreOffice WASM) 9420.6 ms, контакт-лист 1232.7 ms, проверка качества (lint) 1289.8 ms
 
-## drevnyaya-gretsiya.pptx
+## kukla-iz-vozdushnogo-plastilina.pptx
 
-- Слайдов: **20**, размер 33.87×19.05 см, файл 5163.3 KB
-- Шрифты: `Nunito ExtraBold`, `Nunito Black`, `Nunito`, `Comfortaa`, `Nunito Black (theme)`, `Nunito (theme)`
-- Проблемы: 🛑 0 · ⚠️ 0 · ℹ️ 0 → `drevnyaya-gretsiya/lint.md`
+- Слайдов: **19**, размер 33.87×19.05 см, файл 5778.1 KB
+- Шрифты: `Nunito`, `Lora`, `Lora (theme)`, `Nunito (theme)`
+- Проблемы: 🛑 0 · ⚠️ 0 · ℹ️ 0 → `kukla-iz-vozdushnogo-plastilina/lint.md`
 
-![slides](drevnyaya-gretsiya/contact_sheet.jpg)
+![slides](kukla-iz-vozdushnogo-plastilina/contact_sheet.jpg)
 
 ## Проверка качества
 
 ✅ Проблем не найдено.
 
-## drevnyaya-gretsiya.html (HTML)
-
-### desktop 1600×900 — 20 слайдов, 10907 ms
-
-![desktop](drevnyaya-gretsiya_html/contact_desktop.jpg)
-
-✅ Ничего не выходит за экран, текст не переполнен.
-### phone 390×844 — 20 слайдов, 4267 ms
-
-![phone](drevnyaya-gretsiya_html/contact_phone.jpg)
-
-✅ Ничего не выходит за экран, текст не переполнен.
-
-✅ Ошибок JavaScript нет.

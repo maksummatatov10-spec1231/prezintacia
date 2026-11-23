@@ -1,141 +1,69 @@
 {
  "tool": "check",
- "target": "presentations/drevnyaya-gretsiya.pptx",
- "started": "2026-11-23T15:53:09",
+ "target": "presentations/kukla-iz-vozdushnogo-plastilina.pptx",
+ "started": "2026-11-23T17:15:05",
  "results": [
   {
-   "file": "presentations/drevnyaya-gretsiya.pptx",
-   "slides": 20,
+   "file": "presentations/kukla-iz-vozdushnogo-plastilina.pptx",
+   "slides": 19,
    "issues": {
     "error": 0,
     "warn": 0,
     "info": 0
    }
-  },
-  {
-   "file": "presentations/drevnyaya-gretsiya.html",
-   "audit": {
-    "desktop": [],
-    "phone": []
-   },
-   "errors": []
   }
  ],
  "ok": true,
- "total_ms": 19543.5,
+ "total_ms": 12419.2,
  "steps": [
   {
    "step": "анализ структуры",
    "ok": true,
-   "ms": 253.6
+   "ms": 333.3
   },
   {
    "step": "рендер слайдов (LibreOffice WASM)",
-   "cached": true,
+   "cached": false,
    "ok": true,
-   "ms": 37.3
+   "ms": 9420.6
   },
   {
    "step": "контакт-лист",
    "ok": true,
-   "ms": 1193.9
+   "ms": 1232.7
   },
   {
    "step": "проверка качества (lint)",
    "ok": true,
-   "ms": 1276.3
-  },
-  {
-   "step": "запуск Chromium",
-   "ok": true,
-   "ms": 495.0
-  },
-  {
-   "step": "скриншоты слайдов: desktop, phone",
-   "ok": true,
-   "ms": 15175.4
-  },
-  {
-   "step": "контакт-лист desktop",
-   "ok": true,
-   "ms": 631.0
-  },
-  {
-   "step": "контакт-лист phone",
-   "ok": true,
-   "ms": 258.2
+   "ms": 1289.8
   }
  ],
  "files": [
-  "drevnyaya-gretsiya/analysis.json",
-  "drevnyaya-gretsiya/analysis.md",
-  "drevnyaya-gretsiya/contact_sheet.jpg",
-  "drevnyaya-gretsiya/lint.json",
-  "drevnyaya-gretsiya/lint.md",
-  "drevnyaya-gretsiya/slides/slide-01.png",
-  "drevnyaya-gretsiya/slides/slide-02.png",
-  "drevnyaya-gretsiya/slides/slide-03.png",
-  "drevnyaya-gretsiya/slides/slide-04.png",
-  "drevnyaya-gretsiya/slides/slide-05.png",
-  "drevnyaya-gretsiya/slides/slide-06.png",
-  "drevnyaya-gretsiya/slides/slide-07.png",
-  "drevnyaya-gretsiya/slides/slide-08.png",
-  "drevnyaya-gretsiya/slides/slide-09.png",
-  "drevnyaya-gretsiya/slides/slide-10.png",
-  "drevnyaya-gretsiya/slides/slide-11.png",
-  "drevnyaya-gretsiya/slides/slide-12.png",
-  "drevnyaya-gretsiya/slides/slide-13.png",
-  "drevnyaya-gretsiya/slides/slide-14.png",
-  "drevnyaya-gretsiya/slides/slide-15.png",
-  "drevnyaya-gretsiya/slides/slide-16.png",
-  "drevnyaya-gretsiya/slides/slide-17.png",
-  "drevnyaya-gretsiya/slides/slide-18.png",
-  "drevnyaya-gretsiya/slides/slide-19.png",
-  "drevnyaya-gretsiya/slides/slide-20.png",
-  "drevnyaya-gretsiya/text.txt",
-  "drevnyaya-gretsiya_html/audit.json",
-  "drevnyaya-gretsiya_html/contact_desktop.jpg",
-  "drevnyaya-gretsiya_html/contact_phone.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-01.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-02.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-03.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-04.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-05.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-06.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-07.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-08.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-09.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-10.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-11.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-12.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-13.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-14.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-15.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-16.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-17.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-18.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-19.jpg",
-  "drevnyaya-gretsiya_html/desktop/slide-20.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-01.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-02.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-03.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-04.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-05.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-06.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-07.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-08.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-09.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-10.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-11.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-12.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-13.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-14.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-15.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-16.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-17.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-18.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-19.jpg",
-  "drevnyaya-gretsiya_html/phone/slide-20.jpg",
+  "kukla-iz-vozdushnogo-plastilina/analysis.json",
+  "kukla-iz-vozdushnogo-plastilina/analysis.md",
+  "kukla-iz-vozdushnogo-plastilina/contact_sheet.jpg",
+  "kukla-iz-vozdushnogo-plastilina/lint.json",
+  "kukla-iz-vozdushnogo-plastilina/lint.md",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-01.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-02.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-03.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-04.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-05.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-06.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-07.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-08.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-09.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-10.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-11.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-12.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-13.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-14.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-15.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-16.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-17.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-18.png",
+  "kukla-iz-vozdushnogo-plastilina/slides/slide-19.png",
+  "kukla-iz-vozdushnogo-plastilina/text.txt",
   "log.txt"
  ]
 }
